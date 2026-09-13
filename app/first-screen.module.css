@@ -30,9 +30,12 @@
   position: relative;
   z-index: 2;
   margin-top: clamp(20px, 4vh, 48px);
-  width: clamp(200px, 34vw, 340px);
+  width: clamp(220px, 38vw, 380px);
   height: auto;
-  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.18));
+  /* soft layered neon halo: warm gold spread with a faint red/white bloom */
+  filter: drop-shadow(0 0 6px rgba(255, 214, 120, 0.85))
+    drop-shadow(0 0 16px rgba(255, 190, 70, 0.55)) drop-shadow(0 0 30px rgba(255, 120, 90, 0.3))
+    drop-shadow(0 2px 6px rgba(0, 0, 0, 0.25));
 }
 
 .title {
