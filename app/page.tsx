@@ -10,7 +10,7 @@ const options = [
 export default function Home() {
   return (
     <main className={styles.screen}>
-      <img className={styles.logo} src="/assets/logo-wide.png" alt="후루룩찹찹" />
+      <img className={styles.logo} src="/assets/logo-new.png" alt="후루룩찹찹" />
 
       <h1 className={styles.title}>오늘은 누구와 함께하세요?</h1>
 
