@@ -445,6 +445,15 @@ export default function FranchisePage() {
           }
           .fr-consult-done h2{margin-bottom:0;}
           .fr-consult-done .lead{margin-bottom:8px;}
+          .fr-contact{
+            display:flex;gap:32px;margin-top:56px;padding-top:32px;border-top:1px solid var(--fr-line);
+          }
+          .fr-contact-item{
+            display:flex;flex-direction:column;gap:4px;text-decoration:none;
+          }
+          .fr-contact-label{font-size:12px;font-weight:600;letter-spacing:.06em;color:var(--fr-warm);}
+          .fr-contact-value{font-size:16px;font-weight:600;color:var(--fr-charcoal);}
+          .fr-contact-item:hover .fr-contact-value{color:var(--fr-gold);}
 
           @media(max-width:820px){
             .fr-wrap{padding:0 24px;}

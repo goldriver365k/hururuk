@@ -17,6 +17,9 @@ const SIZE_LABEL: Record<string, string> = {
 
 type HasStore = "yes" | "no"
 
+const CONTACT_EMAIL = "daehyun@money100.co.kr"
+const CONTACT_PHONE = "02-898-8838"
+
 export function ConsultForm() {
   const [prevRegion, setPrevRegion] = useState<string | null>(null)
   const [prevSize, setPrevSize] = useState<string | null>(null)
@@ -56,6 +59,28 @@ export function ConsultForm() {
     setErrors(nextErrors)
     if (Object.keys(nextErrors).length > 0) return
 
+    const lines = [
+      `이름: ${name.trim()}`,
+      `연락처: ${phone.trim()}`,
+      `희망 지역: ${wantRegion.trim()}`,
+      `점포 보유 여부: ${hasStore === "yes" ? "있음" : "없음"}`,
+      `문의 내용: ${message.trim() || "-"}`,
+    ]
+
+    if (hasPrevSelection) {
+      lines.push(
+        "",
+        "[이전 단계 선택값]",
+        `선택 상권: ${prevRegion ? REGION_LABEL[prevRegion] ?? prevRegion : "-"}`,
+        `매장 규모: ${prevSize ? SIZE_LABEL[prevSize] ?? prevSize : "-"}`,
+        `선택 메뉴: ${prevMenus.length > 0 ? prevMenus.map((m) => categoryLabels[m]).join(" · ") : "-"}`,
+      )
+    }
+
+    const subject = encodeURIComponent("[후루룩찹찹 파트너 상담 신청]")
+    const body = encodeURIComponent(lines.join("\n"))
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`
+
     setSubmitted(true)
   }
 
@@ -67,6 +92,16 @@ export function ConsultForm() {
             <span className="eyebrow">Partner Inquiry</span>
             <h2 className="text-balance">상담 신청이 접수되었습니다</h2>
             <p className="lead text-pretty">확인 후 연락드리겠습니다.</p>
+            <div className="fr-contact">
+              <a href={`tel:${CONTACT_PHONE}`} className="fr-contact-item">
+                <span className="fr-contact-label">전화</span>
+                <span className="fr-contact-value">{CONTACT_PHONE}</span>
+              </a>
+              <a href={`mailto:${CONTACT_EMAIL}`} className="fr-contact-item">
+                <span className="fr-contact-label">이메일</span>
+                <span className="fr-contact-value">{CONTACT_EMAIL}</span>
+              </a>
+            </div>
             <a href="/" className="fr-next">
               홈으로
             </a>
@@ -207,6 +242,17 @@ export function ConsultForm() {
               </button>
             </div>
           </form>
+        </div>
+
+        <div className="fr-contact">
+          <a href={`tel:${CONTACT_PHONE}`} className="fr-contact-item">
+            <span className="fr-contact-label">전화</span>
+            <span className="fr-contact-value">{CONTACT_PHONE}</span>
+          </a>
+          <a href={`mailto:${CONTACT_EMAIL}`} className="fr-contact-item">
+            <span className="fr-contact-label">이메일</span>
+            <span className="fr-contact-value">{CONTACT_EMAIL}</span>
+          </a>
         </div>
       </div>
     </section>
