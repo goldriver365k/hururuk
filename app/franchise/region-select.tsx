@@ -3,6 +3,7 @@
 import { useState } from "react"
 
 type RegionKey = "univ" | "resid" | "office"
+type SizeKey = "small" | "medium" | "large"
 
 const OPTIONS: { key: RegionKey; mark: string; name: string; desc: string }[] = [
   {
@@ -25,14 +26,48 @@ const OPTIONS: { key: RegionKey; mark: string; name: string; desc: string }[] = 
   },
 ]
 
-export function RegionSelect() {
-  const [selected, setSelected] = useState<RegionKey | null>(null)
-  const active = OPTIONS.find((o) => o.key === selected)
+const SIZES: { key: SizeKey; mark: string; name: string; desc: string }[] = [
+  {
+    key: "small",
+    mark: "Size 01",
+    name: "소형 매장",
+    desc: "적은 인원으로 운영하는 컴팩트한 매장입니다.",
+  },
+  {
+    key: "medium",
+    mark: "Size 02",
+    name: "중형 매장",
+    desc: "가장 균형 잡힌 표준형 매장입니다.",
+  },
+  {
+    key: "large",
+    mark: "Size 03",
+    name: "대형 매장",
+    desc: "넉넉한 좌석과 다양한 메뉴를 담는 매장입니다.",
+  },
+]
 
-  const handleSelect = (key: RegionKey) => {
-    setSelected(key)
+export function RegionSelect() {
+  const [step, setStep] = useState<"region" | "size">("region")
+  const [region, setRegion] = useState<RegionKey | null>(null)
+  const [size, setSize] = useState<SizeKey | null>(null)
+
+  const activeRegion = OPTIONS.find((o) => o.key === region)
+  const activeSize = SIZES.find((o) => o.key === size)
+
+  const selectRegion = (key: RegionKey) => {
+    setRegion(key)
     try {
       sessionStorage.setItem("fr_region", key)
+    } catch {
+      // ignore storage errors (private mode, etc.)
+    }
+  }
+
+  const selectSize = (key: SizeKey) => {
+    setSize(key)
+    try {
+      sessionStorage.setItem("fr_size", key)
     } catch {
       // ignore storage errors (private mode, etc.)
     }
@@ -41,42 +76,98 @@ export function RegionSelect() {
   return (
     <section className="fr-region" id="start">
       <div className="fr-wrap">
-        <div className="head">
-          <span className="eyebrow">Location</span>
-          <h2 className="text-balance">어디에서 시작하시나요?</h2>
-          <p className="lead text-pretty">
-            매장이 메뉴에 맞추는 것이 아니라, <b>메뉴가 상권에 맞춰 변합니다.</b>
-          </p>
-        </div>
+        {step === "region" ? (
+          <>
+            <div className="head">
+              <span className="eyebrow">Location</span>
+              <h2 className="text-balance">어디에서 시작하시나요?</h2>
+              <p className="lead text-pretty">
+                매장이 메뉴에 맞추는 것이 아니라, <b>메뉴가 상권에 맞춰 변합니다.</b>
+              </p>
+            </div>
 
-        <div className="fr-opts">
-          {OPTIONS.map((o) => (
+            <div className="fr-opts">
+              {OPTIONS.map((o) => (
+                <button
+                  key={o.key}
+                  type="button"
+                  className="fr-opt"
+                  aria-pressed={region === o.key}
+                  onClick={() => selectRegion(o.key)}
+                >
+                  <div className="mark">{o.mark}</div>
+                  <div className="name">{o.name}</div>
+                </button>
+              ))}
+            </div>
+
+            {activeRegion && (
+              <div className="fr-desc" role="status" aria-live="polite">
+                <div className="t">{activeRegion.name}</div>
+                <div className="d">{activeRegion.desc}</div>
+              </div>
+            )}
+
             <button
-              key={o.key}
               type="button"
-              className="fr-opt"
-              aria-pressed={selected === o.key}
-              onClick={() => handleSelect(o.key)}
+              className="fr-next"
+              disabled={!region}
+              onClick={() => setStep("size")}
             >
-              <div className="mark">{o.mark}</div>
-              <div className="name">{o.name}</div>
+              다음
+              <span className="arrow" aria-hidden="true">
+                →
+              </span>
             </button>
-          ))}
-        </div>
+          </>
+        ) : (
+          <>
+            <div className="head">
+              <span className="eyebrow">Store Size</span>
+              <h2 className="text-balance">어떤 크기로 시작할까요?</h2>
+              <p className="lead text-pretty">
+                운영 규모에 맞춰 <b>매장 크기를 선택하세요.</b>
+              </p>
+            </div>
 
-        {active && (
-          <div className="fr-desc" role="status" aria-live="polite">
-            <div className="t">{active.name}</div>
-            <div className="d">{active.desc}</div>
-          </div>
+            <div className="fr-opts">
+              {SIZES.map((o) => (
+                <button
+                  key={o.key}
+                  type="button"
+                  className="fr-opt"
+                  aria-pressed={size === o.key}
+                  onClick={() => selectSize(o.key)}
+                >
+                  <div className="mark">{o.mark}</div>
+                  <div className="name">{o.name}</div>
+                </button>
+              ))}
+            </div>
+
+            {activeSize && (
+              <div className="fr-desc" role="status" aria-live="polite">
+                <div className="t">{activeSize.name}</div>
+                <div className="d">{activeSize.desc}</div>
+              </div>
+            )}
+
+            <div className="fr-btnrow">
+              <button type="button" className="fr-back" onClick={() => setStep("region")}>
+                <span className="arrow" aria-hidden="true">
+                  ←
+                </span>
+                이전
+              </button>
+              <button type="button" className="fr-next" disabled={!size}>
+                다음
+                <span className="arrow" aria-hidden="true">
+                  →
+                </span>
+              </button>
+            </div>
+          </>
         )}
-
-        <button type="button" className="fr-next" disabled={!selected}>
-          다음
-          <span className="arrow" aria-hidden="true">
-            →
-          </span>
-        </button>
       </div>
     </section>
   )

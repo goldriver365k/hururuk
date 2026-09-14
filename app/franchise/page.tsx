@@ -220,6 +220,18 @@ export default function FranchisePage() {
           .fr-next:disabled{opacity:.4;cursor:not-allowed;}
           .fr-next .arrow{display:inline-block;transition:transform .2s ease;}
           .fr-next:hover:not(:disabled) .arrow{transform:translateX(4px);}
+          .fr-btnrow{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+          .fr-back{
+            display:inline-flex;align-items:center;gap:12px;
+            background:transparent;color:var(--fr-charcoal);
+            font-size:15px;font-weight:600;font-family:inherit;
+            padding:18px 40px;border-radius:2px;
+            border:1px solid var(--fr-warm-soft);cursor:pointer;
+            transition:border-color .2s ease,transform .2s ease;
+          }
+          .fr-back:hover{border-color:var(--fr-charcoal);transform:translateY(-1px);}
+          .fr-back .arrow{display:inline-block;transition:transform .2s ease;}
+          .fr-back:hover .arrow{transform:translateX(-4px);}
 
           @media(max-width:820px){
             .fr-wrap{padding:0 24px;}
