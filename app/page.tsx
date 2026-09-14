@@ -1,10 +1,11 @@
+import Link from "next/link"
 import styles from "./first-screen.module.css"
 
 const options = [
-  { key: "solo", label: "혼자", img: "/assets/first/char-solo.png" },
-  { key: "couple", label: "연인", img: "/assets/first/char-couple.png" },
-  { key: "family", label: "가족", img: "/assets/first/char-family.png" },
-  { key: "friends", label: "친구들", img: "/assets/first/char-friends.png" },
+  { key: "solo", label: "혼자", img: "/assets/first/char-solo.png", href: "/solo" },
+  { key: "couple", label: "연인", img: "/assets/first/char-couple.png", href: undefined },
+  { key: "family", label: "가족", img: "/assets/first/char-family.png", href: undefined },
+  { key: "friends", label: "친구들", img: "/assets/first/char-friends.png", href: undefined },
 ]
 
 export default function Home() {
@@ -15,15 +16,27 @@ export default function Home() {
       <h1 className={styles.title}>오늘은 누구와 함께하세요?</h1>
 
       <div className={styles.options}>
-        {options.map((option) => (
-          <button key={option.key} type="button" className={styles.option}>
-            <span className={styles.arrow} aria-hidden="true" />
-            <span className={styles.card}>
-              <img className={styles.char} src={option.img || "/placeholder.svg"} alt={option.label} />
-            </span>
-            <span className={styles.label}>{option.label}</span>
-          </button>
-        ))}
+        {options.map((option) => {
+          const content = (
+            <>
+              <span className={styles.arrow} aria-hidden="true" />
+              <span className={styles.card}>
+                <img className={styles.char} src={option.img || "/placeholder.svg"} alt={option.label} />
+              </span>
+              <span className={styles.label}>{option.label}</span>
+            </>
+          )
+
+          return option.href ? (
+            <Link key={option.key} href={option.href} className={styles.option}>
+              {content}
+            </Link>
+          ) : (
+            <button key={option.key} type="button" className={styles.option}>
+              {content}
+            </button>
+          )
+        })}
       </div>
     </main>
   )
