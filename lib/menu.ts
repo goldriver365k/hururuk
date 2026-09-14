@@ -1,4 +1,4 @@
-export type MenuCategory = "rice" | "pho" | "mala" | "spaghetti" | "ramen" | "cutlet"
+export type MenuCategory = "rice" | "pho" | "mala" | "spaghetti" | "ramen"
 
 export type MenuItem = {
   id: string
@@ -15,11 +15,10 @@ export const categoryLabels: Record<MenuCategory, string> = {
   pho: "쌀국수",
   mala: "마라탕",
   spaghetti: "스파게티",
-  ramen: "라멘",
-  cutlet: "돈까스",
+  ramen: "라멘·돈까스",
 }
 
-export const categoryOrder: MenuCategory[] = ["rice", "pho", "mala", "spaghetti", "ramen", "cutlet"]
+export const categoryOrder: MenuCategory[] = ["rice", "pho", "mala", "spaghetti", "ramen"]
 
 export const menuItems: MenuItem[] = [
   {
@@ -201,14 +200,7 @@ export const menuItems: MenuItem[] = [
     id: "donkatsu",
     name: "돈까스",
     tagline: "긴자 골목의 맛",
-    category: "cutlet",
+    category: "ramen",
     image: img("garlic-donkatsu"),
-  },
-  {
-    id: "garlic-cheese-donkatsu",
-    name: "마늘치즈돈까스",
-    tagline: "마늘간장 소스에 튀긴 마늘칩 가득",
-    category: "cutlet",
-    image: "/assets/menu/garlic-cheese-donkatsu.png",
   },
 ]
