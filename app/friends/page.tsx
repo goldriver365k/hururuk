@@ -3,7 +3,7 @@ import { menuItems } from "@/lib/menu"
 import { SiteNav } from "@/components/site-nav"
 import styles from "./friends.module.css"
 
-const friendsIds = ["soy-woosamgyeop-stirfry", "malatang"]
+const friendsIds = ["soy-woosamgyeop-stirfry", "malatang", "cheese-malatang", "gochujang-woosamgyeop-stirfry"]
 
 const friendsMenus = friendsIds.map((id) => menuItems.find((item) => item.id === id)!).filter(Boolean)
 

@@ -3,9 +3,11 @@ import { menuItems } from "@/lib/menu"
 import { SiteNav } from "@/components/site-nav"
 import styles from "./family.module.css"
 
-const familyIds = ["donkatsu", "woosamgyeop-bomb-pho"]
+const adultIds = ["hwasan-bulbaek", "woosamgyeop-bomb-pho"]
+const childIds = ["donkatsu", "tomato-pork-curry"]
 
-const familyMenus = familyIds.map((id) => menuItems.find((item) => item.id === id)!).filter(Boolean)
+const adultMenus = adultIds.map((id) => menuItems.find((item) => item.id === id)!).filter(Boolean)
+const childMenus = childIds.map((id) => menuItems.find((item) => item.id === id)!).filter(Boolean)
 
 export default function FamilyPage() {
   return (
@@ -15,16 +17,34 @@ export default function FamilyPage() {
 
       <img className={styles.character} src="/assets/first/char-family.png" alt="가족" />
 
-      <div className={styles.grid}>
-        {familyMenus.map((item) => (
-          <div key={item.id} className={styles.card}>
-            <img className={styles.thumb} src={item.image || "/placeholder.svg"} alt={item.name} />
-            <div className={styles.info}>
-              <span className={styles.tagline}>{item.tagline}</span>
-              <span className={styles.name}>{item.name}</span>
+      <div className={styles.group}>
+        <span className={styles.groupLabel}>어른 추천</span>
+        <div className={styles.grid}>
+          {adultMenus.map((item) => (
+            <div key={item.id} className={styles.card}>
+              <img className={styles.thumb} src={item.image || "/placeholder.svg"} alt={item.name} />
+              <div className={styles.info}>
+                <span className={styles.tagline}>{item.tagline}</span>
+                <span className={styles.name}>{item.name}</span>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+      </div>
+
+      <div className={styles.group}>
+        <span className={styles.groupLabel}>아이 추천</span>
+        <div className={styles.grid}>
+          {childMenus.map((item) => (
+            <div key={item.id} className={styles.card}>
+              <img className={styles.thumb} src={item.image || "/placeholder.svg"} alt={item.name} />
+              <div className={styles.info}>
+                <span className={styles.tagline}>{item.tagline}</span>
+                <span className={styles.name}>{item.name}</span>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
 
       <Link href="/menu" className={styles.moreButton}>
