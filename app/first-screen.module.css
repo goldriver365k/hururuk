@@ -26,6 +26,70 @@
   pointer-events: none;
 }
 
+.partnerButton {
+  position: absolute;
+  top: clamp(14px, 2.5vh, 24px);
+  right: clamp(14px, 2.5vw, 28px);
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #234a1e 0%, #16300f 100%);
+  box-shadow: 0 0 0 1px rgba(212, 175, 90, 0.55), 0 6px 16px rgba(0, 0, 0, 0.28);
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.partnerButton:hover,
+.partnerButton:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 1px rgba(212, 175, 90, 0.8), 0 8px 20px rgba(0, 0, 0, 0.32);
+  outline: none;
+}
+
+.partnerButtonEn {
+  font-family: "Noto Serif KR", serif;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.6px;
+  color: #d4af5a;
+}
+
+.partnerButtonDivider {
+  width: 1px;
+  height: 11px;
+  background: rgba(212, 175, 90, 0.5);
+}
+
+.partnerButtonKo {
+  font-family: "Noto Serif KR", serif;
+  font-weight: 700;
+  font-size: 13px;
+  color: #f6efd8;
+}
+
+@media (max-width: 680px) {
+  .partnerButton {
+    padding: 6px 12px;
+    gap: 6px;
+  }
+
+  .partnerButtonEn {
+    display: none;
+  }
+
+  .partnerButtonDivider {
+    display: none;
+  }
+
+  .partnerButtonKo {
+    font-size: 12px;
+  }
+}
+
 .logo {
   position: relative;
   z-index: 2;

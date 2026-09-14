@@ -11,6 +11,12 @@ const options = [
 export default function Home() {
   return (
     <main className={styles.screen}>
+      <Link href="/franchise" className={styles.partnerButton}>
+        <span className={styles.partnerButtonEn}>PARTNER</span>
+        <span className={styles.partnerButtonDivider} aria-hidden="true" />
+        <span className={styles.partnerButtonKo}>파트너 되기</span>
+      </Link>
+
       <img className={styles.logo} src="/assets/logo-new.png" alt="후루룩찹찹" />
 
       <h1 className={styles.title}>오늘은 누구와 함께하세요?</h1>
