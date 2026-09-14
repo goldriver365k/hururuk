@@ -17,14 +17,6 @@ export default function Home() {
         <span className={styles.partnerButtonKo}>파트너 되기</span>
       </Link>
 
-      {/* Ambient sky birds only — must never sit above the logo, title, or option cards */}
-      <div className={`${styles.birdBox} ${styles.bird1}`} aria-hidden="true">
-        <img className={styles.birdImg} src="/assets/birds.png" alt="" />
-      </div>
-      <div className={`${styles.birdBox} ${styles.bird2}`} aria-hidden="true">
-        <img className={styles.birdImg} src="/assets/birds.png" alt="" />
-      </div>
-
       <img className={styles.logo} src="/assets/logo-new.png" alt="후루룩찹찹" />
 
       <h1 className={styles.title}>오늘은 누구와 함께하세요?</h1>
@@ -38,9 +30,6 @@ export default function Home() {
                 <img className={styles.char} src={option.img || "/placeholder.svg"} alt={option.label} />
               </span>
               <span className={styles.label}>{option.label}</span>
-              {option.key === "couple" && (
-                <img className={styles.toad} src="/assets/toad.png" alt="" aria-hidden="true" />
-              )}
             </>
           )
 
