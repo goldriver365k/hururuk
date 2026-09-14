@@ -34,11 +34,19 @@ export default function Home() {
           )
 
           return option.href ? (
-            <Link key={option.key} href={option.href} className={styles.option}>
+            <Link
+              key={option.key}
+              href={option.href}
+              className={`${styles.option} ${option.key === "couple" ? styles.optionCouple : ""}`}
+            >
               {content}
             </Link>
           ) : (
-            <button key={option.key} type="button" className={styles.option}>
+            <button
+              key={option.key}
+              type="button"
+              className={`${styles.option} ${option.key === "couple" ? styles.optionCouple : ""}`}
+            >
               {content}
             </button>
           )
