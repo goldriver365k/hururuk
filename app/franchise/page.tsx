@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import Link from "next/link"
 import { RegionSelect } from "./region-select"
 import { ConsultForm } from "./consult-form"
 
@@ -46,12 +47,26 @@ export default function FranchisePage() {
           .fr-logo{
             font-size:16px;font-weight:700;letter-spacing:-0.01em;
             color:var(--fr-charcoal);
+            text-decoration:none;
           }
           .fr-logo span{color:var(--fr-gold);}
           .fr-tag{
             font-size:12px;font-weight:600;letter-spacing:0.22em;
             text-transform:uppercase;color:var(--fr-warm);
           }
+          .fr-nav-right{display:flex;align-items:center;gap:20px;}
+          .fr-home-link{
+            font-size:12px;font-weight:600;letter-spacing:0.02em;
+            color:var(--fr-charcoal);
+            border:1px solid var(--fr-line);
+            border-radius:999px;
+            padding:6px 14px;
+            text-decoration:none;
+            transition:border-color .2s,color .2s;
+            white-space:nowrap;
+          }
+          .fr-home-link:hover{border-color:var(--fr-gold);color:var(--fr-gold);}
+          .fr-home-short{display:none;}
 
           .fr-hero{
             min-height:calc(100vh - 67px);
@@ -499,6 +514,9 @@ export default function FranchisePage() {
             .fr-hero-desc{font-size:16px;}
             .fr-sub{font-size:20px;}
             .fr-tag{display:none;}
+            .fr-home-link{padding:5px 12px;}
+            .fr-home-full{display:none;}
+            .fr-home-short{display:inline;}
             .fr-meta{flex-direction:column;gap:24px;}
             .fr-model{padding:80px 0;}
             .fr-model h2{font-size:30px;}
@@ -535,10 +553,16 @@ export default function FranchisePage() {
       <header className="fr-header">
         <div className="fr-wrap">
           <div className="fr-nav">
-            <div className="fr-logo">
+            <Link href="/" className="fr-logo">
               후루룩찹찹 <span>파트너</span>
+            </Link>
+            <div className="fr-nav-right">
+              <div className="fr-tag">Business Partnership</div>
+              <Link href="/" className="fr-home-link">
+                <span className="fr-home-full">HOME | 홈으로</span>
+                <span className="fr-home-short">홈으로</span>
+              </Link>
             </div>
-            <div className="fr-tag">Business Partnership</div>
           </div>
         </div>
       </header>
