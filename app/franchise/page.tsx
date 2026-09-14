@@ -273,6 +273,41 @@ export default function FranchisePage() {
           .fr-menu[aria-pressed="true"] .thumb .check{opacity:1;}
           .fr-menu--static{cursor:default;}
           .fr-menu--static:hover{transform:none;}
+          .fr-store{
+            padding:28px 32px;margin-bottom:36px;
+            background:var(--fr-paper);border:1px solid var(--fr-warm-soft);
+            border-radius:3px;
+          }
+          .fr-store-top{
+            display:flex;align-items:baseline;justify-content:space-between;
+            flex-wrap:wrap;gap:12px;padding-bottom:20px;
+            border-bottom:1px solid var(--fr-warm-soft);
+          }
+          .fr-store .lbl{
+            font-size:12px;font-weight:700;letter-spacing:0.08em;
+            text-transform:uppercase;color:var(--fr-gold);
+          }
+          .fr-store-name{display:inline-flex;align-items:center;gap:10px;}
+          .fr-store-name .val{font-size:20px;font-weight:700;color:var(--fr-charcoal);letter-spacing:-0.01em;}
+          .fr-store-name .sep{color:var(--fr-warm-soft);}
+          .fr-store-tags{
+            display:flex;flex-wrap:wrap;gap:10px;padding-top:20px;
+          }
+          .fr-store-tag{
+            font-size:13px;font-weight:600;color:var(--fr-warm);
+            padding:6px 14px;border:1px solid var(--fr-warm-soft);
+            border-radius:20px;
+          }
+          .fr-menus--result{margin-bottom:32px;}
+          .fr-recap{
+            display:flex;align-items:center;gap:16px;flex-wrap:wrap;
+            margin-bottom:44px;
+          }
+          .fr-recap-item{
+            font-size:14px;font-weight:600;color:var(--fr-warm);
+            padding-right:16px;border-right:1px solid var(--fr-warm-soft);
+          }
+          .fr-recap-item:last-child{border-right:none;padding-right:0;}
 
           @media(max-width:820px){
             .fr-wrap{padding:0 24px;}

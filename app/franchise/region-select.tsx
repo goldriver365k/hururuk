@@ -245,18 +245,30 @@ export function RegionSelect() {
         ) : (
           <>
             <div className="head">
-              <span className="eyebrow">Result</span>
+              <span className="eyebrow">My Hururuk Chapchap</span>
               <h2 className="text-balance">나의 후루룩찹찹</h2>
               <p className="lead text-pretty">상권에 맞는 나만의 후루룩찹찹이 완성되었습니다.</p>
             </div>
 
-            <div className="fr-mine" aria-label="선택한 상권과 매장 규모">
-              <span className="val">{activeRegion?.name ?? "-"}</span>
-              <span className="sep" aria-hidden="true">·</span>
-              <span className="val">{activeSize?.name ?? "-"}</span>
+            <div className="fr-store">
+              <div className="fr-store-top">
+                <span className="lbl">내가 선택한 매장</span>
+                <div className="fr-store-name">
+                  <span className="val">{activeRegion?.name ?? "-"}</span>
+                  <span className="sep" aria-hidden="true">·</span>
+                  <span className="val">{activeSize?.name ?? "-"}</span>
+                </div>
+              </div>
+              <div className="fr-store-tags">
+                {CATEGORY_THUMBS.filter((c) => menus.includes(c.key)).map((c) => (
+                  <span key={c.key} className="fr-store-tag">
+                    {c.name}
+                  </span>
+                ))}
+              </div>
             </div>
 
-            <div className="fr-menus">
+            <div className="fr-menus fr-menus--result">
               {CATEGORY_THUMBS.filter((c) => menus.includes(c.key)).map((c) => (
                 <div key={c.key} className="fr-menu fr-menu--static">
                   <span className="thumb">
@@ -265,6 +277,12 @@ export function RegionSelect() {
                   <span className="name">{c.name}</span>
                 </div>
               ))}
+            </div>
+
+            <div className="fr-recap" role="status" aria-live="polite">
+              <span className="fr-recap-item">{activeRegion?.name ?? "-"}</span>
+              <span className="fr-recap-item">{activeSize?.name ?? "-"}</span>
+              <span className="fr-recap-item">{menus.length}개 메뉴 카테고리</span>
             </div>
 
             <div className="fr-btnrow">
