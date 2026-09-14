@@ -22,6 +22,59 @@
   text-shadow: 0 2px 0 rgba(255, 255, 255, 0.7), 0 6px 18px rgba(120, 70, 20, 0.28);
 }
 
+.filters {
+  width: 100%;
+  max-width: 1120px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.filter {
+  flex: 0 0 auto;
+  padding: 10px 20px;
+  border: 2px solid rgba(120, 80, 35, 0.25);
+  border-radius: 999px;
+  background: #fdf3df;
+  color: #6b4321;
+  font-size: clamp(14px, 1.6vw, 16px);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 4px 10px rgba(90, 50, 15, 0.12);
+  transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+}
+
+.filter:hover,
+.filter:focus-visible {
+  border-color: rgba(120, 80, 35, 0.45);
+  outline: none;
+}
+
+.filterActive {
+  background: linear-gradient(180deg, #4f9d3a, #3c7d2c);
+  border-color: #2f6522;
+  color: #fffdf5;
+  box-shadow: 0 6px 14px rgba(50, 100, 30, 0.35), inset 0 0 0 2px rgba(255, 220, 140, 0.5);
+}
+
+@media (max-width: 559px) {
+  .filters {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 6px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .filters::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 .grid {
   width: 100%;
   max-width: 1120px;
