@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { RegionSelect } from "./region-select"
 
 export const metadata: Metadata = {
   title: "후루룩찹찹 파트너 | 사업 제안",
@@ -142,6 +143,84 @@ export default function FranchisePage() {
             color:var(--fr-charcoal-soft);
           }
 
+          .fr-region{
+            border-top:1px solid var(--fr-line);
+            padding:120px 0;
+          }
+          .fr-region .head{max-width:720px;margin-bottom:64px;}
+          .fr-region .eyebrow{
+            display:inline-flex;align-items:center;gap:12px;
+            font-size:12.5px;font-weight:600;letter-spacing:0.2em;
+            text-transform:uppercase;color:var(--fr-gold);
+            margin-bottom:28px;
+          }
+          .fr-region .eyebrow::before{content:"";width:32px;height:1px;background:var(--fr-gold);}
+          .fr-region h2{
+            font-size:44px;line-height:1.25;font-weight:700;
+            letter-spacing:-0.02em;margin-bottom:28px;
+          }
+          .fr-region .lead{
+            font-size:18px;line-height:1.75;font-weight:400;
+            color:var(--fr-charcoal-soft);max-width:560px;
+          }
+          .fr-region .lead b{font-weight:600;color:var(--fr-charcoal);}
+          .fr-opts{
+            display:grid;grid-template-columns:repeat(3,1fr);
+            gap:20px;margin-bottom:36px;
+          }
+          .fr-opt{
+            position:relative;
+            background:var(--fr-paper);
+            border:1px solid var(--fr-line);
+            border-radius:3px;
+            padding:40px 32px;
+            text-align:left;cursor:pointer;
+            transition:border-color .2s ease,background .2s ease,transform .2s ease;
+            font-family:inherit;color:inherit;
+          }
+          .fr-opt:hover{transform:translateY(-2px);border-color:var(--fr-warm-soft);}
+          .fr-opt .mark{
+            font-size:12px;font-weight:600;letter-spacing:0.14em;
+            color:var(--fr-warm-soft);margin-bottom:22px;
+            text-transform:uppercase;transition:color .2s ease;
+          }
+          .fr-opt .name{
+            font-size:22px;font-weight:700;letter-spacing:-0.01em;
+            color:var(--fr-charcoal);
+          }
+          .fr-opt[aria-pressed="true"]{
+            background:var(--fr-charcoal);
+            border-color:var(--fr-charcoal);
+          }
+          .fr-opt[aria-pressed="true"] .mark{color:var(--fr-gold);}
+          .fr-opt[aria-pressed="true"] .name{color:var(--fr-ivory);}
+          .fr-desc{
+            min-height:0;
+            border-left:2px solid var(--fr-gold);
+            padding:18px 24px;margin-bottom:44px;
+            background:var(--fr-paper);
+            border-radius:0 3px 3px 0;
+          }
+          .fr-desc .t{
+            font-size:15px;font-weight:700;color:var(--fr-charcoal);
+            margin-bottom:6px;letter-spacing:-0.01em;
+          }
+          .fr-desc .d{
+            font-size:15px;line-height:1.7;color:var(--fr-charcoal-soft);
+          }
+          .fr-next{
+            display:inline-flex;align-items:center;gap:12px;
+            background:var(--fr-charcoal);color:var(--fr-ivory);
+            font-size:15px;font-weight:600;font-family:inherit;
+            padding:18px 44px;border-radius:2px;
+            border:1px solid var(--fr-charcoal);cursor:pointer;
+            transition:background .2s ease,transform .2s ease,opacity .2s ease;
+          }
+          .fr-next:hover:not(:disabled){background:#000;transform:translateY(-1px);}
+          .fr-next:disabled{opacity:.4;cursor:not-allowed;}
+          .fr-next .arrow{display:inline-block;transition:transform .2s ease;}
+          .fr-next:hover:not(:disabled) .arrow{transform:translateX(4px);}
+
           @media(max-width:820px){
             .fr-wrap{padding:0 24px;}
             .fr-hero h1{font-size:36px;}
@@ -153,6 +232,12 @@ export default function FranchisePage() {
             .fr-model .head{margin-bottom:48px;}
             .fr-grid{grid-template-columns:1fr;gap:16px;}
             .fr-card{padding:36px 28px;}
+            .fr-region{padding:80px 0;}
+            .fr-region h2{font-size:30px;}
+            .fr-region .head{margin-bottom:44px;}
+            .fr-opts{grid-template-columns:1fr;gap:14px;}
+            .fr-opt{padding:32px 28px;}
+            .fr-next{width:100%;justify-content:center;}
           }
         `,
         }}
@@ -225,6 +310,8 @@ export default function FranchisePage() {
           </div>
         </div>
       </section>
+
+      <RegionSelect />
     </div>
   )
 }
