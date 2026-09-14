@@ -510,6 +510,8 @@ export default function FranchisePage() {
           <h1 className="text-balance">후루룩찹찹 파트너가 되세요</h1>
           <p className="lead text-pretty">
             매장이 메뉴에 맞추는 것이 아니라, <b>메뉴가 상권에 맞춰 변합니다.</b>
+            <br />
+            여러 전문메뉴를 한곳에서 즐기는 신개념 분식 브랜드입니다.
           </p>
           <a href="#start" className="fr-cta">
             내 매장 만들어보기
