@@ -2,9 +2,11 @@
 
 import { useState } from "react"
 import styles from "./menu.module.css"
-import { menuItems } from "@/lib/menu"
+import { menuItems, type MenuCategory } from "@/lib/menu"
 
-const categories = ["전체", ...Array.from(new Set(menuItems.map((item) => item.category)))]
+const categoryOrder: MenuCategory[] = ["덮밥", "쌀국수 / 면류", "라구 / 파스타", "라멘 / 마라", "돈까스"]
+const presentCategories = new Set(menuItems.map((item) => item.category))
+const categories = ["전체", ...categoryOrder.filter((category) => presentCategories.has(category))]
 
 export default function MenuPage() {
   const [active, setActive] = useState("전체")
