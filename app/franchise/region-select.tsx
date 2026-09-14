@@ -27,24 +27,30 @@ const OPTIONS: { key: RegionKey; mark: string; name: string; desc: string }[] = 
   },
 ]
 
-const SIZES: { key: SizeKey; mark: string; name: string; desc: string }[] = [
+const SIZES: { key: SizeKey; mark: string; name: string; area: string; desc: string; floorplan: string }[] = [
   {
     key: "small",
     mark: "Size 01",
     name: "소형 매장",
+    area: "10평",
     desc: "적은 인원으로 운영하는 컴팩트한 매장입니다.",
+    floorplan: "/franchise/floorplan-small.png",
   },
   {
     key: "medium",
     mark: "Size 02",
     name: "중형 매장",
+    area: "15평",
     desc: "가장 균형 잡힌 표준형 매장입니다.",
+    floorplan: "/franchise/floorplan-medium.png",
   },
   {
     key: "large",
     mark: "Size 03",
     name: "대형 매장",
+    area: "20평",
     desc: "넉넉한 좌석과 다양한 메뉴를 담는 매장입니다.",
+    floorplan: "/franchise/floorplan-large.png",
   },
 ]
 
@@ -161,13 +167,16 @@ export function RegionSelect() {
                 >
                   <div className="mark">{o.mark}</div>
                   <div className="name">{o.name}</div>
+                  <div className="area">{o.area}</div>
                 </button>
               ))}
             </div>
 
             {activeSize && (
               <div className="fr-desc" role="status" aria-live="polite">
-                <div className="t">{activeSize.name}</div>
+                <div className="t">
+                  {activeSize.name} <span className="area">{activeSize.area}</span>
+                </div>
                 <div className="d">{activeSize.desc}</div>
               </div>
             )}
@@ -256,7 +265,10 @@ export function RegionSelect() {
                 <div className="fr-store-name">
                   <span className="val">{activeRegion?.name ?? "-"}</span>
                   <span className="sep" aria-hidden="true">·</span>
-                  <span className="val">{activeSize?.name ?? "-"}</span>
+                  <span className="val">
+                    {activeSize?.name ?? "-"}
+                    {activeSize ? ` (${activeSize.area})` : ""}
+                  </span>
                 </div>
               </div>
               <div className="fr-store-tags">
@@ -267,6 +279,15 @@ export function RegionSelect() {
                 ))}
               </div>
             </div>
+
+            {activeSize && (
+              <div className="fr-floorplan">
+                <span className="lbl">
+                  {activeSize.name} {activeSize.area} 도면
+                </span>
+                <img src={activeSize.floorplan || "/placeholder.svg"} alt={`${activeSize.name} ${activeSize.area} 도면`} />
+              </div>
+            )}
 
             <div className="fr-menus fr-menus--result">
               {CATEGORY_THUMBS.filter((c) => menus.includes(c.key)).map((c) => (

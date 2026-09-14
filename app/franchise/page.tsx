@@ -189,12 +189,18 @@ export default function FranchisePage() {
             font-size:22px;font-weight:700;letter-spacing:-0.01em;
             color:var(--fr-charcoal);
           }
+          .fr-opt .area{
+            font-size:13px;font-weight:600;letter-spacing:0;
+            color:var(--fr-warm-soft);margin-top:8px;
+            transition:color .2s ease;
+          }
           .fr-opt[aria-pressed="true"]{
             background:var(--fr-charcoal);
             border-color:var(--fr-charcoal);
           }
           .fr-opt[aria-pressed="true"] .mark{color:var(--fr-gold);}
           .fr-opt[aria-pressed="true"] .name{color:var(--fr-ivory);}
+          .fr-opt[aria-pressed="true"] .area{color:var(--fr-warm);}
           .fr-desc{
             min-height:0;
             border-left:2px solid var(--fr-gold);
@@ -206,6 +212,7 @@ export default function FranchisePage() {
             font-size:15px;font-weight:700;color:var(--fr-charcoal);
             margin-bottom:6px;letter-spacing:-0.01em;
           }
+          .fr-desc .t .area{font-weight:600;color:var(--fr-gold);}
           .fr-desc .d{
             font-size:15px;line-height:1.7;color:var(--fr-charcoal-soft);
           }
@@ -300,6 +307,19 @@ export default function FranchisePage() {
             border-radius:20px;
           }
           .fr-menus--result{margin-bottom:32px;}
+          .fr-floorplan{
+            margin-bottom:36px;padding:28px 32px;
+            background:var(--fr-paper);border:1px solid var(--fr-warm-soft);
+            border-radius:3px;
+          }
+          .fr-floorplan .lbl{
+            display:block;font-size:12px;font-weight:700;letter-spacing:0.08em;
+            text-transform:uppercase;color:var(--fr-gold);margin-bottom:16px;
+          }
+          .fr-floorplan img{
+            display:block;width:100%;height:auto;border-radius:2px;
+            background:var(--fr-ivory);
+          }
           .fr-recap{
             display:flex;align-items:center;gap:16px;flex-wrap:wrap;
             margin-bottom:44px;
