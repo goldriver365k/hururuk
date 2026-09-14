@@ -309,6 +309,60 @@ export default function FranchisePage() {
           }
           .fr-recap-item:last-child{border-right:none;padding-right:0;}
 
+          .fr-support{
+            border-top:1px solid var(--fr-line);
+            padding:120px 0;
+          }
+          .fr-support .head{max-width:720px;margin-bottom:80px;}
+          .fr-support .eyebrow{
+            display:inline-flex;align-items:center;gap:12px;
+            font-size:12.5px;font-weight:600;letter-spacing:0.2em;
+            text-transform:uppercase;color:var(--fr-gold);
+            margin-bottom:28px;
+          }
+          .fr-support .eyebrow::before{content:"";width:32px;height:1px;background:var(--fr-gold);}
+          .fr-support h2{
+            font-size:44px;line-height:1.25;font-weight:700;
+            letter-spacing:-0.02em;margin-bottom:28px;
+          }
+          .fr-support .lead{
+            font-size:18px;line-height:1.75;font-weight:400;
+            color:var(--fr-charcoal-soft);max-width:560px;
+          }
+          .fr-support .lead b{font-weight:600;color:var(--fr-charcoal);}
+          .fr-flow{
+            display:flex;align-items:stretch;margin-bottom:96px;
+          }
+          .fr-flow-item{
+            flex:1;min-width:0;padding-right:32px;
+            display:flex;flex-direction:column;
+          }
+          .fr-flow-num{
+            font-size:52px;font-weight:700;line-height:1;
+            letter-spacing:-0.02em;color:var(--fr-warm-soft);
+            margin-bottom:26px;
+          }
+          .fr-flow-item h3{
+            font-size:19px;font-weight:700;letter-spacing:-0.01em;
+            line-height:1.4;margin-bottom:14px;
+          }
+          .fr-flow-item p{
+            font-size:14.5px;line-height:1.75;font-weight:400;
+            color:var(--fr-charcoal-soft);
+          }
+          .fr-flow-arrow{
+            flex:0 0 auto;align-self:center;
+            font-size:18px;color:var(--fr-warm-soft);
+            padding:0 22px;
+          }
+          .fr-support-cta{
+            border-top:1px solid var(--fr-line);padding-top:64px;
+            display:flex;flex-direction:column;align-items:flex-start;gap:32px;
+          }
+          .fr-support-cta h3{
+            font-size:32px;font-weight:700;letter-spacing:-0.02em;
+          }
+
           @media(max-width:820px){
             .fr-wrap{padding:0 24px;}
             .fr-hero h1{font-size:36px;}
@@ -328,6 +382,15 @@ export default function FranchisePage() {
             .fr-next{width:100%;justify-content:center;}
             .fr-menus{grid-template-columns:1fr;gap:12px;}
             .fr-btnrow .fr-next,.fr-btnrow .fr-back{flex:1;justify-content:center;}
+            .fr-support{padding:80px 0;}
+            .fr-support h2{font-size:30px;}
+            .fr-support .head{margin-bottom:48px;}
+            .fr-flow{flex-direction:column;gap:40px;margin-bottom:64px;}
+            .fr-flow-item{padding-right:0;padding-top:32px;border-top:1px solid var(--fr-line);}
+            .fr-flow-item:first-child{padding-top:0;border-top:none;}
+            .fr-flow-arrow{display:none;}
+            .fr-support-cta{padding-top:48px;}
+            .fr-support-cta h3{font-size:26px;}
           }
         `,
         }}
@@ -402,6 +465,64 @@ export default function FranchisePage() {
       </section>
 
       <RegionSelect />
+
+      <section className="fr-support">
+        <div className="fr-wrap">
+          <div className="head">
+            <span className="eyebrow">Partner Support</span>
+            <h2 className="text-balance">후루룩찹찹이 함께합니다</h2>
+            <p className="lead text-pretty">
+              매장을 만드는 순간부터 <b>운영하는 과정까지 함께합니다.</b>
+            </p>
+          </div>
+
+          <div className="fr-flow">
+            <article className="fr-flow-item">
+              <div className="fr-flow-num">01</div>
+              <h3>상권 · 메뉴 구성</h3>
+              <p className="text-pretty">
+                상권과 고객 특성을 고려하여 매장에 적합한 메뉴 구성을 함께 설계합니다.
+              </p>
+            </article>
+            <span className="fr-flow-arrow" aria-hidden="true">
+              →
+            </span>
+            <article className="fr-flow-item">
+              <div className="fr-flow-num">02</div>
+              <h3>조리 · 운영 교육</h3>
+              <p className="text-pretty">메뉴 조리부터 실제 매장 운영에 필요한 기본 교육을 제공합니다.</p>
+            </article>
+            <span className="fr-flow-arrow" aria-hidden="true">
+              →
+            </span>
+            <article className="fr-flow-item">
+              <div className="fr-flow-num">03</div>
+              <h3>오픈 준비</h3>
+              <p className="text-pretty">주방 구성과 매장 운영 준비부터 오픈까지 필요한 과정을 함께합니다.</p>
+            </article>
+            <span className="fr-flow-arrow" aria-hidden="true">
+              →
+            </span>
+            <article className="fr-flow-item">
+              <div className="fr-flow-num">04</div>
+              <h3>운영 · 메뉴 관리</h3>
+              <p className="text-pretty">
+                오픈 이후에도 메뉴와 운영을 점검하고 매장에 필요한 개선 방향을 함께 고민합니다.
+              </p>
+            </article>
+          </div>
+
+          <div className="fr-support-cta">
+            <h3 className="text-balance">함께 시작해볼까요?</h3>
+            <a href="#consult" className="fr-cta">
+              파트너 상담하기
+              <span className="arrow" aria-hidden="true">
+                →
+              </span>
+            </a>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }
