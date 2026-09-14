@@ -17,6 +17,11 @@ export default function Home() {
         <span className={styles.partnerButtonKo}>파트너 되기</span>
       </Link>
 
+      {/* Ambient background motion only — must never sit above the logo, title, or option cards */}
+      <span className={`${styles.bird} ${styles.bird1}`} aria-hidden="true" />
+      <span className={`${styles.bird} ${styles.bird2}`} aria-hidden="true" />
+      <img className={styles.toad} src="/assets/mascot.png" alt="" aria-hidden="true" />
+
       <img className={styles.logo} src="/assets/logo-new.png" alt="후루룩찹찹" />
 
       <h1 className={styles.title}>오늘은 누구와 함께하세요?</h1>
