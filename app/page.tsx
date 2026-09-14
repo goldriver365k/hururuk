@@ -3,7 +3,7 @@ import styles from "./first-screen.module.css"
 
 const options = [
   { key: "solo", label: "혼자", img: "/assets/first/char-solo.png", href: "/solo" },
-  { key: "couple", label: "연인", img: "/assets/first/char-couple.png", href: undefined },
+  { key: "couple", label: "연인", img: "/assets/first/char-couple.png", href: "/couple" },
   { key: "family", label: "가족", img: "/assets/first/char-family.png", href: undefined },
   { key: "friends", label: "친구들", img: "/assets/first/char-friends.png", href: undefined },
 ]
