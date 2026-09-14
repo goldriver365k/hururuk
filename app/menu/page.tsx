@@ -2,48 +2,65 @@
 
 import { useState } from "react"
 import styles from "./menu.module.css"
-import { menuItems, type MenuCategory } from "@/lib/menu"
+import { menuItems, categoryLabels, categoryOrder, type MenuCategory, type MenuItem } from "@/lib/menu"
 import { SiteNav } from "@/components/site-nav"
+import { MenuDetail } from "@/components/menu-detail"
 
-const categoryOrder: MenuCategory[] = ["덮밥", "쌀국수 / 면류", "라구 / 파스타", "라멘 / 마라", "돈까스"]
-const presentCategories = new Set(menuItems.map((item) => item.category))
-const categories = ["전체", ...categoryOrder.filter((category) => presentCategories.has(category))]
+const presentCategories = categoryOrder.filter((category) => menuItems.some((item) => item.category === category))
+const representativeImage = (category: MenuCategory) =>
+  menuItems.find((item) => item.category === category)?.image ?? "/placeholder.svg"
 
 export default function MenuPage() {
-  const [active, setActive] = useState("전체")
+  const [selected, setSelected] = useState<MenuCategory | null>(null)
+  const [detail, setDetail] = useState<MenuItem | null>(null)
 
-  const visibleItems = active === "전체" ? menuItems : menuItems.filter((item) => item.category === active)
+  const visibleItems = selected ? menuItems.filter((item) => item.category === selected) : []
 
   return (
     <main className={styles.screen}>
       <SiteNav />
-      <h1 className={styles.title}>전체 메뉴</h1>
+      <h1 className={styles.title}>{selected ? categoryLabels[selected] : "전체 메뉴"}</h1>
 
-      <div className={styles.filters}>
-        {categories.map((category) => (
-          <button
-            key={category}
-            type="button"
-            className={`${styles.filter} ${active === category ? styles.filterActive : ""}`}
-            aria-pressed={active === category}
-            onClick={() => setActive(category)}
-          >
-            {category}
+      {selected === null ? (
+        <div className={styles.grid}>
+          {presentCategories.map((category) => (
+            <button
+              key={category}
+              type="button"
+              className={styles.card}
+              onClick={() => setSelected(category)}
+            >
+              <img
+                className={styles.thumb}
+                src={representativeImage(category) || "/placeholder.svg"}
+                alt={categoryLabels[category]}
+              />
+              <span className={styles.info}>
+                <span className={styles.name}>{categoryLabels[category]}</span>
+              </span>
+            </button>
+          ))}
+        </div>
+      ) : (
+        <>
+          <button type="button" className={styles.back} onClick={() => setSelected(null)}>
+            ← 메뉴 종류
           </button>
-        ))}
-      </div>
+          <div className={styles.grid}>
+            {visibleItems.map((item) => (
+              <button key={item.id} type="button" className={styles.card} onClick={() => setDetail(item)}>
+                <img className={styles.thumb} src={item.image || "/placeholder.svg"} alt={item.name} />
+                <span className={styles.info}>
+                  <span className={styles.tagline}>{item.tagline}</span>
+                  <span className={styles.name}>{item.name}</span>
+                </span>
+              </button>
+            ))}
+          </div>
+        </>
+      )}
 
-      <div className={styles.grid}>
-        {visibleItems.map((item) => (
-          <button key={item.id} type="button" className={styles.card}>
-            <img className={styles.thumb} src={item.image || "/placeholder.svg"} alt={item.name} />
-            <span className={styles.info}>
-              <span className={styles.tagline}>{item.tagline}</span>
-              <span className={styles.name}>{item.name}</span>
-            </span>
-          </button>
-        ))}
-      </div>
+      {detail && <MenuDetail item={detail} onClose={() => setDetail(null)} />}
     </main>
   )
 }
