@@ -232,6 +232,45 @@ export default function FranchisePage() {
           .fr-back:hover{border-color:var(--fr-charcoal);transform:translateY(-1px);}
           .fr-back .arrow{display:inline-block;transition:transform .2s ease;}
           .fr-back:hover .arrow{transform:translateX(-4px);}
+          .fr-mine{
+            display:inline-flex;align-items:center;gap:12px;flex-wrap:wrap;
+            padding:12px 20px;margin-bottom:36px;
+            background:var(--fr-paper);border:1px solid var(--fr-warm-soft);
+            border-radius:2px;
+          }
+          .fr-mine .lbl{
+            font-size:12px;font-weight:700;letter-spacing:0.08em;
+            text-transform:uppercase;color:var(--fr-gold);
+          }
+          .fr-mine .val{font-size:14px;font-weight:600;color:var(--fr-charcoal);}
+          .fr-mine .sep{color:var(--fr-warm-soft);}
+          .fr-menus{
+            display:grid;grid-template-columns:repeat(3,1fr);gap:16px;
+            margin-bottom:44px;
+          }
+          .fr-menu{
+            display:flex;align-items:center;gap:16px;text-align:left;
+            padding:16px;border-radius:3px;cursor:pointer;font-family:inherit;
+            background:var(--fr-paper);border:1px solid var(--fr-warm-soft);
+            transition:border-color .2s ease,transform .2s ease;
+          }
+          .fr-menu:hover{transform:translateY(-2px);border-color:var(--fr-warm-soft);}
+          .fr-menu .thumb{
+            position:relative;flex:0 0 auto;width:56px;height:56px;
+            border-radius:3px;overflow:hidden;background:var(--fr-ivory);
+          }
+          .fr-menu .thumb img{width:100%;height:100%;object-fit:cover;display:block;}
+          .fr-menu .thumb .check{
+            position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+            background:rgba(20,20,20,0.55);color:var(--fr-gold);
+            font-size:22px;font-weight:700;opacity:0;transition:opacity .2s ease;
+          }
+          .fr-menu .name{font-size:16px;font-weight:600;color:var(--fr-charcoal);letter-spacing:-0.01em;}
+          .fr-menu[aria-pressed="true"]{
+            border-color:var(--fr-charcoal);background:var(--fr-charcoal);
+          }
+          .fr-menu[aria-pressed="true"] .name{color:var(--fr-ivory);}
+          .fr-menu[aria-pressed="true"] .thumb .check{opacity:1;}
 
           @media(max-width:820px){
             .fr-wrap{padding:0 24px;}
@@ -250,6 +289,8 @@ export default function FranchisePage() {
             .fr-opts{grid-template-columns:1fr;gap:14px;}
             .fr-opt{padding:32px 28px;}
             .fr-next{width:100%;justify-content:center;}
+            .fr-menus{grid-template-columns:1fr;gap:12px;}
+            .fr-btnrow .fr-next,.fr-btnrow .fr-back{flex:1;justify-content:center;}
           }
         `,
         }}

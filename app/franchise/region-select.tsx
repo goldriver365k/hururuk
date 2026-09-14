@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { categoryOrder, categoryLabels, menuItems, type MenuCategory } from "@/lib/menu"
 
 type RegionKey = "univ" | "resid" | "office"
 type SizeKey = "small" | "medium" | "large"
@@ -47,10 +48,17 @@ const SIZES: { key: SizeKey; mark: string; name: string; desc: string }[] = [
   },
 ]
 
+const CATEGORY_THUMBS: { key: MenuCategory; name: string; image: string }[] = categoryOrder.map((key) => ({
+  key,
+  name: categoryLabels[key],
+  image: menuItems.find((m) => m.category === key)?.image ?? "",
+}))
+
 export function RegionSelect() {
-  const [step, setStep] = useState<"region" | "size">("region")
+  const [step, setStep] = useState<"region" | "size" | "menu">("region")
   const [region, setRegion] = useState<RegionKey | null>(null)
   const [size, setSize] = useState<SizeKey | null>(null)
+  const [menus, setMenus] = useState<MenuCategory[]>([])
 
   const activeRegion = OPTIONS.find((o) => o.key === region)
   const activeSize = SIZES.find((o) => o.key === size)
@@ -71,6 +79,18 @@ export function RegionSelect() {
     } catch {
       // ignore storage errors (private mode, etc.)
     }
+  }
+
+  const toggleMenu = (key: MenuCategory) => {
+    setMenus((prev) => {
+      const next = prev.includes(key) ? prev.filter((k) => k !== key) : [...prev, key]
+      try {
+        sessionStorage.setItem("fr_menus", JSON.stringify(next))
+      } catch {
+        // ignore storage errors (private mode, etc.)
+      }
+      return next
+    })
   }
 
   return (
@@ -120,7 +140,7 @@ export function RegionSelect() {
               </span>
             </button>
           </>
-        ) : (
+        ) : step === "size" ? (
           <>
             <div className="head">
               <span className="eyebrow">Store Size</span>
@@ -159,8 +179,58 @@ export function RegionSelect() {
                 </span>
                 이전
               </button>
-              <button type="button" className="fr-next" disabled={!size}>
+              <button type="button" className="fr-next" disabled={!size} onClick={() => setStep("menu")}>
                 다음
+                <span className="arrow" aria-hidden="true">
+                  →
+                </span>
+              </button>
+            </div>
+          </>
+        ) : (
+          <>
+            <div className="head">
+              <span className="eyebrow">Menu</span>
+              <h2 className="text-balance">내 매장에는 무엇을 담을까요?</h2>
+              <p className="lead text-pretty">
+                상권과 규모에 맞춰 <b>담고 싶은 메뉴를 골라보세요.</b> 여러 개 선택할 수 있습니다.
+              </p>
+            </div>
+
+            <div className="fr-mine" aria-label="이전 단계에서 선택한 값">
+              <span className="lbl">나의 선택</span>
+              <span className="val">{activeRegion?.name ?? "-"}</span>
+              <span className="sep" aria-hidden="true">/</span>
+              <span className="val">{activeSize?.name ?? "-"}</span>
+            </div>
+
+            <div className="fr-menus">
+              {CATEGORY_THUMBS.map((c) => (
+                <button
+                  key={c.key}
+                  type="button"
+                  className="fr-menu"
+                  aria-pressed={menus.includes(c.key)}
+                  onClick={() => toggleMenu(c.key)}
+                >
+                  <span className="thumb">
+                    {c.image ? <img src={c.image || "/placeholder.svg"} alt="" loading="lazy" /> : null}
+                    <span className="check" aria-hidden="true">✓</span>
+                  </span>
+                  <span className="name">{c.name}</span>
+                </button>
+              ))}
+            </div>
+
+            <div className="fr-btnrow">
+              <button type="button" className="fr-back" onClick={() => setStep("size")}>
+                <span className="arrow" aria-hidden="true">
+                  ←
+                </span>
+                이전
+              </button>
+              <button type="button" className="fr-next" disabled={menus.length === 0}>
+                내 매장 보기
                 <span className="arrow" aria-hidden="true">
                   →
                 </span>
