@@ -16,7 +16,7 @@ export const menuItems: MenuItem[] = [
     name: "화산불백",
     tagline: "남자의 소울푸드",
     category: "덮밥",
-    image: img("hwasan-bulbaek-popup"),
+    image: "/assets/menu/hwasan-bulbaek.png",
   },
   {
     id: "woosamgyeop-bomb-pho",
