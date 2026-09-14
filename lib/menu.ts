@@ -37,6 +37,13 @@ export const menuItems: MenuItem[] = [
     image: "/assets/menu/mala-hwasan-bulbaek.png",
   },
   {
+    id: "hwasan-soy-bulbaek",
+    name: "화산간장불백",
+    tagline: "간장불백에 노른자 톡",
+    category: "rice",
+    image: "/assets/menu/hwasan-soy-bulbaek.png",
+  },
+  {
     id: "garlic-pork",
     name: "갈릭포크덮밥",
     tagline: "마늘향 가득한 불맛",
