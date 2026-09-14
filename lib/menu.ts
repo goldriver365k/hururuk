@@ -125,7 +125,14 @@ export const menuItems: MenuItem[] = [
     name: "마라탕",
     tagline: "그녀의 스트레스를 날려줄",
     category: "mala",
-    image: img("malatang"),
+    image: "/assets/menu/malatang.png",
+  },
+  {
+    id: "cheese-malatang",
+    name: "치즈마라탕",
+    tagline: "치즈 폭포로 부드러운 마라",
+    category: "mala",
+    image: "/assets/menu/cheese-malatang.png",
   },
   {
     id: "fukuoka-ramen",
