@@ -17,10 +17,13 @@ export default function Home() {
         <span className={styles.partnerButtonKo}>파트너 되기</span>
       </Link>
 
-      {/* Ambient background motion only — must never sit above the logo, title, or option cards */}
-      <span className={`${styles.bird} ${styles.bird1}`} aria-hidden="true" />
-      <span className={`${styles.bird} ${styles.bird2}`} aria-hidden="true" />
-      <img className={styles.toad} src="/assets/mascot.png" alt="" aria-hidden="true" />
+      {/* Ambient sky birds only — must never sit above the logo, title, or option cards */}
+      <div className={`${styles.birdBox} ${styles.bird1}`} aria-hidden="true">
+        <img className={styles.birdImg} src="/assets/birds.png" alt="" />
+      </div>
+      <div className={`${styles.birdBox} ${styles.bird2}`} aria-hidden="true">
+        <img className={styles.birdImg} src="/assets/birds.png" alt="" />
+      </div>
 
       <img className={styles.logo} src="/assets/logo-new.png" alt="후루룩찹찹" />
 
@@ -35,15 +38,26 @@ export default function Home() {
                 <img className={styles.char} src={option.img || "/placeholder.svg"} alt={option.label} />
               </span>
               <span className={styles.label}>{option.label}</span>
+              {option.key === "couple" && (
+                <img className={styles.toad} src="/assets/toad.png" alt="" aria-hidden="true" />
+              )}
             </>
           )
 
           return option.href ? (
-            <Link key={option.key} href={option.href} className={styles.option}>
+            <Link
+              key={option.key}
+              href={option.href}
+              className={`${styles.option} ${option.key === "couple" ? styles.optionCouple : ""}`}
+            >
               {content}
             </Link>
           ) : (
-            <button key={option.key} type="button" className={styles.option}>
+            <button
+              key={option.key}
+              type="button"
+              className={`${styles.option} ${option.key === "couple" ? styles.optionCouple : ""}`}
+            >
               {content}
             </button>
           )
