@@ -146,7 +146,7 @@ export const menuItems: MenuItem[] = [
     name: "후쿠오카라멘",
     tagline: "나카스 포장마차의 맛",
     category: "ramen",
-    image: img("chicken-pho"),
+    image: "/assets/menu/fukuoka-ramen.png",
   },
   {
     id: "ragu-spaghetti",
@@ -203,5 +203,12 @@ export const menuItems: MenuItem[] = [
     tagline: "긴자 골목의 맛",
     category: "cutlet",
     image: img("garlic-donkatsu"),
+  },
+  {
+    id: "garlic-cheese-donkatsu",
+    name: "마늘치즈돈까스",
+    tagline: "마늘간장 소스에 튀긴 마늘칩 가득",
+    category: "cutlet",
+    image: "/assets/menu/garlic-cheese-donkatsu.png",
   },
 ]
