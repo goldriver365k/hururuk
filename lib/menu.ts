@@ -92,6 +92,13 @@ export const menuItems: MenuItem[] = [
     image: "/assets/menu/bulhyang-woosamgyeop-ragu-rice.png",
   },
   {
+    id: "jikhwa-woosamgyeop-rice",
+    name: "직화우삼겹덮밥",
+    tagline: "직화로 구운 우삼겹 한 그릇",
+    category: "rice",
+    image: "/assets/menu/jikhwa-woosamgyeop-rice.png",
+  },
+  {
     id: "woosamgyeop-bomb-pho",
     name: "우삼겹폭탄쌀국수",
     tagline: "하노이의 감성",
