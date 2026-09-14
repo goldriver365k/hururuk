@@ -23,6 +23,7 @@ export default function FranchisePage() {
             --fr-charcoal:#26241F;
             --fr-charcoal-soft:#4A463F;
             --fr-gold:#B08A3E;
+            --fr-red:#B23A2E;
             min-height:100vh;
             background:var(--fr-ivory);
             color:var(--fr-charcoal);
@@ -61,20 +62,36 @@ export default function FranchisePage() {
             display:inline-flex;align-items:center;gap:12px;
             font-size:12.5px;font-weight:600;letter-spacing:0.2em;
             text-transform:uppercase;color:var(--fr-gold);
-            margin-bottom:36px;
+            margin:8px 0 32px;
           }
           .fr-kicker::before{content:"";width:32px;height:1px;background:var(--fr-gold);}
-          .fr-hero h1{
-            font-size:60px;line-height:1.18;font-weight:700;
-            letter-spacing:-0.02em;
-            max-width:820px;margin-bottom:40px;
+          .fr-kicker::after{content:"";flex:1;height:1px;background:var(--fr-line);}
+          .fr-core{
+            display:flex;flex-direction:column;gap:8px;
+            max-width:820px;margin-bottom:28px;
           }
-          .fr-hero .lead{
-            font-size:20px;line-height:1.75;font-weight:400;
+          .fr-core .line1{
+            font-size:38px;line-height:1.28;font-weight:700;
+            letter-spacing:-0.01em;color:var(--fr-charcoal);
+          }
+          .fr-core .line2{
+            font-size:46px;line-height:1.24;font-weight:800;
+            letter-spacing:-0.01em;color:var(--fr-red);
+            display:inline-block;padding-bottom:12px;
+            background-image:linear-gradient(var(--fr-gold),var(--fr-gold));
+            background-repeat:no-repeat;background-size:100% 3px;background-position:0 100%;
+          }
+          .fr-hero-desc{
+            font-size:18px;line-height:1.75;font-weight:400;
             color:var(--fr-charcoal-soft);
-            max-width:560px;margin-bottom:52px;
+            max-width:560px;margin-bottom:8px;
           }
-          .fr-hero .lead b{font-weight:600;color:var(--fr-charcoal);}
+          .fr-hero-desc b{font-weight:700;color:var(--fr-charcoal);}
+          .fr-sub{
+            font-size:24px;line-height:1.5;font-weight:600;
+            letter-spacing:-0.01em;color:var(--fr-charcoal-soft);
+            max-width:640px;margin-bottom:40px;
+          }
           .fr-cta{
             display:inline-flex;align-items:center;gap:12px;
             align-self:flex-start;
@@ -477,8 +494,10 @@ export default function FranchisePage() {
 
           @media(max-width:820px){
             .fr-wrap{padding:0 24px;}
-            .fr-hero h1{font-size:36px;}
-            .fr-hero .lead{font-size:17px;}
+            .fr-core .line1{font-size:26px;}
+            .fr-core .line2{font-size:30px;}
+            .fr-hero-desc{font-size:16px;}
+            .fr-sub{font-size:20px;}
             .fr-tag{display:none;}
             .fr-meta{flex-direction:column;gap:24px;}
             .fr-model{padding:80px 0;}
@@ -526,13 +545,15 @@ export default function FranchisePage() {
 
       <main className="fr-hero">
         <div className="fr-wrap">
-          <span className="fr-kicker">Partner Program</span>
-          <h1 className="text-balance">후루룩찹찹 파트너가 되세요</h1>
-          <p className="lead text-pretty">
-            매장이 메뉴에 맞추는 것이 아니라, <b>메뉴가 상권에 맞춰 변합니다.</b>
-            <br />
-            여러 전문메뉴를 한곳에서 즐기는 신개념 분식 브랜드입니다.
+          <h1 className="fr-core text-balance">
+            <span className="line1">매장이 메뉴에 맞추는 것이 아니라,</span>
+            <span className="line2">메뉴가 상권에 맞춰 변합니다.</span>
+          </h1>
+          <p className="fr-hero-desc text-pretty">
+            여러 <b>전문메뉴</b>를 한곳에서 즐기는 <b>신개념 분식</b> 브랜드입니다.
           </p>
+          <span className="fr-kicker">Partner Program</span>
+          <h2 className="fr-sub text-balance">후루룩찹찹 파트너가 되세요</h2>
           <a href="#start" className="fr-cta">
             내 매장 만들어보기
             <span className="arrow" aria-hidden="true">
