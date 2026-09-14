@@ -100,12 +100,59 @@ export default function FranchisePage() {
             font-size:15px;font-weight:500;color:var(--fr-charcoal-soft);
           }
 
+          .fr-model{
+            border-top:1px solid var(--fr-line);
+            padding:120px 0;
+          }
+          .fr-model .head{
+            max-width:720px;margin-bottom:72px;
+          }
+          .fr-model .eyebrow{
+            display:inline-flex;align-items:center;gap:12px;
+            font-size:12.5px;font-weight:600;letter-spacing:0.2em;
+            text-transform:uppercase;color:var(--fr-gold);
+            margin-bottom:28px;
+          }
+          .fr-model .eyebrow::before{content:"";width:32px;height:1px;background:var(--fr-gold);}
+          .fr-model h2{
+            font-size:44px;line-height:1.25;font-weight:700;
+            letter-spacing:-0.02em;
+          }
+          .fr-grid{
+            display:grid;grid-template-columns:repeat(3,1fr);
+            gap:28px;
+          }
+          .fr-card{
+            background:var(--fr-paper);
+            border:1px solid var(--fr-line);
+            border-radius:3px;
+            padding:44px 36px;
+            display:flex;flex-direction:column;
+          }
+          .fr-card .num{
+            font-size:12px;font-weight:600;letter-spacing:0.14em;
+            color:var(--fr-warm-soft);margin-bottom:28px;
+          }
+          .fr-card h3{
+            font-size:23px;font-weight:700;letter-spacing:-0.01em;
+            line-height:1.35;margin-bottom:16px;
+          }
+          .fr-card p{
+            font-size:15.5px;line-height:1.7;font-weight:400;
+            color:var(--fr-charcoal-soft);
+          }
+
           @media(max-width:820px){
             .fr-wrap{padding:0 24px;}
             .fr-hero h1{font-size:36px;}
             .fr-hero .lead{font-size:17px;}
             .fr-tag{display:none;}
             .fr-meta{flex-direction:column;gap:24px;}
+            .fr-model{padding:80px 0;}
+            .fr-model h2{font-size:30px;}
+            .fr-model .head{margin-bottom:48px;}
+            .fr-grid{grid-template-columns:1fr;gap:16px;}
+            .fr-card{padding:36px 28px;}
           }
         `,
         }}
@@ -152,6 +199,32 @@ export default function FranchisePage() {
           </div>
         </div>
       </main>
+
+      <section className="fr-model">
+        <div className="fr-wrap">
+          <div className="head">
+            <span className="eyebrow">Business Model</span>
+            <h2 className="text-balance">하나의 매장, 여러 개의 전문점</h2>
+          </div>
+          <div className="fr-grid">
+            <article className="fr-card">
+              <div className="num">01</div>
+              <h3>푸드코트의 선택권</h3>
+              <p className="text-pretty">여러 종류의 음식을 한 공간에서 선택</p>
+            </article>
+            <article className="fr-card">
+              <div className="num">02</div>
+              <h3>전문점의 맛</h3>
+              <p className="text-pretty">각 카테고리의 대표 메뉴에 집중</p>
+            </article>
+            <article className="fr-card">
+              <div className="num">03</div>
+              <h3>단일매장의 운영효율</h3>
+              <p className="text-pretty">하나의 주방과 운영 시스템으로 구성</p>
+            </article>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }
