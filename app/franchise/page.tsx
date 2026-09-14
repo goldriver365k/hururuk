@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import { RegionSelect } from "./region-select"
+import { ConsultForm } from "./consult-form"
 
 export const metadata: Metadata = {
   title: "후루룩찹찹 파트너 | 사업 제안",
@@ -363,6 +364,88 @@ export default function FranchisePage() {
             font-size:32px;font-weight:700;letter-spacing:-0.02em;
           }
 
+          .fr-consult{
+            border-top:1px solid var(--fr-line);
+            padding:120px 0;
+          }
+          .fr-consult .head{max-width:720px;margin-bottom:64px;}
+          .fr-consult .eyebrow{
+            display:inline-flex;align-items:center;gap:12px;
+            font-size:12.5px;font-weight:600;letter-spacing:0.2em;
+            text-transform:uppercase;color:var(--fr-gold);
+            margin-bottom:28px;
+          }
+          .fr-consult .eyebrow::before{content:"";width:32px;height:1px;background:var(--fr-gold);}
+          .fr-consult h2{
+            font-size:44px;line-height:1.25;font-weight:700;
+            letter-spacing:-0.02em;margin-bottom:28px;
+          }
+          .fr-consult .lead{
+            font-size:18px;line-height:1.75;font-weight:400;
+            color:var(--fr-charcoal-soft);max-width:560px;
+          }
+          .fr-consult .lead b{font-weight:600;color:var(--fr-charcoal);}
+          .fr-consult-grid{
+            display:grid;grid-template-columns:320px 1fr;gap:48px;
+            align-items:start;
+          }
+          .fr-consult-summary{
+            background:var(--fr-paper);border:1px solid var(--fr-line);
+            border-radius:3px;padding:32px 28px;
+          }
+          .fr-consult-summary .lbl{
+            display:block;font-size:12px;font-weight:700;letter-spacing:0.08em;
+            text-transform:uppercase;color:var(--fr-gold);margin-bottom:22px;
+          }
+          .fr-consult-summary dl .row{
+            padding:14px 0;border-top:1px solid var(--fr-line);
+          }
+          .fr-consult-summary dl .row:first-child{border-top:none;padding-top:0;}
+          .fr-consult-summary dt{
+            font-size:12px;font-weight:600;letter-spacing:0.06em;
+            color:var(--fr-warm);margin-bottom:6px;
+          }
+          .fr-consult-summary dd{
+            font-size:15.5px;font-weight:600;color:var(--fr-charcoal);
+            letter-spacing:-0.01em;line-height:1.5;
+          }
+          .fr-consult-summary .empty{
+            font-size:14.5px;line-height:1.7;color:var(--fr-charcoal-soft);
+          }
+          .fr-form{display:flex;flex-direction:column;gap:24px;}
+          .fr-field{display:flex;flex-direction:column;gap:10px;}
+          .fr-field label,.fr-field-label{
+            font-size:14px;font-weight:600;color:var(--fr-charcoal);letter-spacing:-0.01em;
+          }
+          .fr-optional{font-weight:400;color:var(--fr-warm);}
+          .fr-field input,.fr-field textarea{
+            width:100%;font-family:inherit;font-size:15.5px;color:var(--fr-charcoal);
+            background:var(--fr-paper);border:1px solid var(--fr-line);
+            border-radius:3px;padding:16px 18px;transition:border-color .2s ease;
+            resize:vertical;
+          }
+          .fr-field input:focus,.fr-field textarea:focus{
+            outline:none;border-color:var(--fr-gold);
+          }
+          .fr-field input[aria-invalid="true"]{border-color:#B3452F;}
+          .fr-error{font-size:13px;font-weight:500;color:#B3452F;}
+          .fr-radio-group{display:flex;gap:12px;}
+          .fr-radio{
+            flex:1;background:var(--fr-paper);border:1px solid var(--fr-line);
+            border-radius:3px;padding:14px 0;font-family:inherit;
+            font-size:15px;font-weight:600;color:var(--fr-charcoal-soft);
+            cursor:pointer;transition:border-color .2s ease,background .2s ease,color .2s ease;
+          }
+          .fr-radio:hover{border-color:var(--fr-warm-soft);}
+          .fr-radio[aria-pressed="true"]{
+            background:var(--fr-charcoal);border-color:var(--fr-charcoal);color:var(--fr-ivory);
+          }
+          .fr-consult-done{
+            padding:96px 0;display:flex;flex-direction:column;align-items:flex-start;gap:28px;
+          }
+          .fr-consult-done h2{margin-bottom:0;}
+          .fr-consult-done .lead{margin-bottom:8px;}
+
           @media(max-width:820px){
             .fr-wrap{padding:0 24px;}
             .fr-hero h1{font-size:36px;}
@@ -391,6 +474,11 @@ export default function FranchisePage() {
             .fr-flow-arrow{display:none;}
             .fr-support-cta{padding-top:48px;}
             .fr-support-cta h3{font-size:26px;}
+            .fr-consult{padding:80px 0;}
+            .fr-consult h2{font-size:30px;}
+            .fr-consult .head{margin-bottom:44px;}
+            .fr-consult-grid{grid-template-columns:1fr;gap:28px;}
+            .fr-btnrow .fr-back{width:auto;}
           }
         `,
         }}
@@ -523,6 +611,8 @@ export default function FranchisePage() {
           </div>
         </div>
       </section>
+
+      <ConsultForm />
     </div>
   )
 }
