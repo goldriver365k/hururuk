@@ -11,6 +11,8 @@ export default function SoloPage() {
     <main className={styles.screen}>
       <h1 className={styles.title}>혼자 먹어도 즐겁다</h1>
 
+      <img className={styles.character} src="/assets/first/char-solo.png" alt="혼자" />
+
       <div className={styles.grid}>
         {soloMenus.map((item) => (
           <div key={item.id} className={styles.card}>

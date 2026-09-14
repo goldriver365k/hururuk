@@ -9,7 +9,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 40px;
+  gap: 28px;
+}
+
+.character {
+  width: clamp(160px, 26vw, 240px);
+  height: auto;
+  filter: drop-shadow(0 12px 20px rgba(90, 50, 15, 0.28));
 }
 
 .title {
