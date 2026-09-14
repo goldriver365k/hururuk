@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { menuItems } from "@/lib/menu"
+import { SiteNav } from "@/components/site-nav"
 import styles from "./solo.module.css"
 
 const soloIds = ["hwasan-bulbaek", "malatang"]
@@ -9,6 +10,7 @@ const soloMenus = soloIds.map((id) => menuItems.find((item) => item.id === id)!)
 export default function SoloPage() {
   return (
     <main className={styles.screen}>
+      <SiteNav />
       <h1 className={styles.title}>혼자 먹어도 즐겁다</h1>
 
       <img className={styles.character} src="/assets/first/char-solo.png" alt="혼자" />

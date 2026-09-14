@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { menuItems } from "@/lib/menu"
+import { SiteNav } from "@/components/site-nav"
 import styles from "./couple.module.css"
 
 const coupleIds = ["ragu-spaghetti", "fukuoka-ramen"]
@@ -9,6 +10,7 @@ const coupleMenus = coupleIds.map((id) => menuItems.find((item) => item.id === i
 export default function CouplePage() {
   return (
     <main className={styles.screen}>
+      <SiteNav />
       <h1 className={styles.title}>함께라서 더 맛있다</h1>
 
       <img className={styles.character} src="/assets/first/char-couple.png" alt="연인" />

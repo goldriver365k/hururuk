@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { menuItems } from "@/lib/menu"
+import { SiteNav } from "@/components/site-nav"
 import styles from "./friends.module.css"
 
 const friendsIds = ["soy-woosamgyeop-stirfry", "malatang"]
@@ -9,6 +10,7 @@ const friendsMenus = friendsIds.map((id) => menuItems.find((item) => item.id ===
 export default function FriendsPage() {
   return (
     <main className={styles.screen}>
+      <SiteNav />
       <h1 className={styles.title}>같이 먹으면 더 즐겁다</h1>
 
       <img className={styles.character} src="/assets/first/char-friends.png" alt="친구들" />

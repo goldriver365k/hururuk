@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { menuItems } from "@/lib/menu"
+import { SiteNav } from "@/components/site-nav"
 import styles from "./family.module.css"
 
 const familyIds = ["donkatsu", "woosamgyeop-bomb-pho"]
@@ -9,6 +10,7 @@ const familyMenus = familyIds.map((id) => menuItems.find((item) => item.id === i
 export default function FamilyPage() {
   return (
     <main className={styles.screen}>
+      <SiteNav />
       <h1 className={styles.title}>가족과 함께 더 맛있게</h1>
 
       <img className={styles.character} src="/assets/first/char-family.png" alt="가족" />
