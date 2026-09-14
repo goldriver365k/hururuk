@@ -55,7 +55,7 @@ const CATEGORY_THUMBS: { key: MenuCategory; name: string; image: string }[] = ca
 }))
 
 export function RegionSelect() {
-  const [step, setStep] = useState<"region" | "size" | "menu">("region")
+  const [step, setStep] = useState<"region" | "size" | "menu" | "result">("region")
   const [region, setRegion] = useState<RegionKey | null>(null)
   const [size, setSize] = useState<SizeKey | null>(null)
   const [menus, setMenus] = useState<MenuCategory[]>([])
@@ -187,7 +187,7 @@ export function RegionSelect() {
               </button>
             </div>
           </>
-        ) : (
+        ) : step === "menu" ? (
           <>
             <div className="head">
               <span className="eyebrow">Menu</span>
@@ -229,12 +229,57 @@ export function RegionSelect() {
                 </span>
                 이전
               </button>
-              <button type="button" className="fr-next" disabled={menus.length === 0}>
+              <button
+                type="button"
+                className="fr-next"
+                disabled={menus.length === 0}
+                onClick={() => setStep("result")}
+              >
                 내 매장 보기
                 <span className="arrow" aria-hidden="true">
                   →
                 </span>
               </button>
+            </div>
+          </>
+        ) : (
+          <>
+            <div className="head">
+              <span className="eyebrow">Result</span>
+              <h2 className="text-balance">나의 후루룩찹찹</h2>
+              <p className="lead text-pretty">상권에 맞는 나만의 후루룩찹찹이 완성되었습니다.</p>
+            </div>
+
+            <div className="fr-mine" aria-label="선택한 상권과 매장 규모">
+              <span className="val">{activeRegion?.name ?? "-"}</span>
+              <span className="sep" aria-hidden="true">·</span>
+              <span className="val">{activeSize?.name ?? "-"}</span>
+            </div>
+
+            <div className="fr-menus">
+              {CATEGORY_THUMBS.filter((c) => menus.includes(c.key)).map((c) => (
+                <div key={c.key} className="fr-menu fr-menu--static">
+                  <span className="thumb">
+                    {c.image ? <img src={c.image || "/placeholder.svg"} alt="" loading="lazy" /> : null}
+                  </span>
+                  <span className="name">{c.name}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="fr-btnrow">
+              <button type="button" className="fr-back" onClick={() => setStep("region")}>
+                <span className="arrow" aria-hidden="true">
+                  ←
+                </span>
+                다시 구성하기
+              </button>
+              <a href="#consult" className="fr-next">
+                파트너 상담하기
+                <span className="arrow" aria-hidden="true">
+                  →
+                </span>
+              </a>
             </div>
           </>
         )}

@@ -271,6 +271,8 @@ export default function FranchisePage() {
           }
           .fr-menu[aria-pressed="true"] .name{color:var(--fr-ivory);}
           .fr-menu[aria-pressed="true"] .thumb .check{opacity:1;}
+          .fr-menu--static{cursor:default;}
+          .fr-menu--static:hover{transform:none;}
 
           @media(max-width:820px){
             .fr-wrap{padding:0 24px;}
