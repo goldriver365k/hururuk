@@ -25,6 +25,12 @@ export default function FranchisePage() {
             --fr-charcoal-soft:#4A463F;
             --fr-gold:#B08A3E;
             --fr-red:#B23A2E;
+            --fr-white:#FCFBF8;
+            --fr-graywash:#F2F0EB;
+            --fr-beige:#F1E6D3;
+            --fr-deepbrown:#2E1B12;
+            --fr-red-glow:rgba(178,58,46,.10);
+            --fr-grid-line:rgba(74,44,34,.055);
             min-height:100vh;
             background:var(--fr-ivory);
             color:var(--fr-charcoal);
@@ -81,7 +87,24 @@ export default function FranchisePage() {
             min-height:calc(100vh - 67px);
             display:flex;flex-direction:column;justify-content:center;
             padding:80px 0 96px;
+            position:relative;overflow:hidden;
+            background:
+              radial-gradient(ellipse 900px 520px at 12% -8%, var(--fr-red-glow), transparent 60%),
+              linear-gradient(180deg, #F8F2E8 0%, var(--fr-ivory) 100%);
           }
+          .fr-hero::before{
+            content:"";position:absolute;right:-140px;bottom:-180px;
+            width:520px;height:520px;border-radius:50%;
+            background:radial-gradient(circle at 30% 30%, rgba(176,138,62,.12), transparent 70%);
+            pointer-events:none;
+          }
+          .fr-hero::after{
+            content:"";position:absolute;left:-70px;top:18%;
+            width:280px;height:280px;border-radius:50%;
+            border:1px solid rgba(178,58,46,.09);
+            pointer-events:none;
+          }
+          .fr-hero .fr-wrap{position:relative;z-index:1;}
           .fr-kicker{
             display:inline-flex;align-items:center;gap:12px;
             font-size:12.5px;font-weight:600;letter-spacing:0.2em;
@@ -146,6 +169,11 @@ export default function FranchisePage() {
           .fr-model{
             border-top:1px solid var(--fr-line);
             padding:120px 0;
+            background:var(--fr-white);
+            background-image:
+              linear-gradient(var(--fr-grid-line) 1px, transparent 1px),
+              linear-gradient(90deg, var(--fr-grid-line) 1px, transparent 1px);
+            background-size:64px 64px;
           }
           .fr-model .head{
             max-width:720px;margin-bottom:72px;
@@ -188,6 +216,11 @@ export default function FranchisePage() {
           .fr-region{
             border-top:1px solid var(--fr-line);
             padding:120px 0;
+            background:var(--fr-graywash);
+            background-image:
+              linear-gradient(var(--fr-grid-line) 1px, transparent 1px),
+              linear-gradient(90deg, var(--fr-grid-line) 1px, transparent 1px);
+            background-size:80px 80px;
           }
           .fr-region .head{max-width:720px;margin-bottom:64px;}
           .fr-region .eyebrow{
@@ -374,6 +407,7 @@ export default function FranchisePage() {
           .fr-support{
             border-top:1px solid var(--fr-line);
             padding:120px 0;
+            background:var(--fr-white);
           }
           .fr-support .head{max-width:720px;margin-bottom:80px;}
           .fr-support .eyebrow{
@@ -394,6 +428,11 @@ export default function FranchisePage() {
           .fr-support .lead b{font-weight:600;color:var(--fr-charcoal);}
           .fr-flow{
             display:flex;align-items:stretch;margin-bottom:96px;
+            position:relative;
+          }
+          .fr-flow::before{
+            content:"";position:absolute;left:0;right:0;top:26px;height:1px;
+            background:var(--fr-line);
           }
           .fr-flow-item{
             flex:1;min-width:0;padding-right:32px;
@@ -428,6 +467,9 @@ export default function FranchisePage() {
           .fr-startup{
             border-top:1px solid var(--fr-line);
             padding:120px 0;
+            background-color:var(--fr-beige);
+            background-image:radial-gradient(var(--fr-grid-line) 1px, transparent 1px);
+            background-size:22px 22px;
           }
           .fr-startup .head{max-width:720px;margin-bottom:64px;}
           .fr-startup .eyebrow{
@@ -460,7 +502,7 @@ export default function FranchisePage() {
           .fr-steps{
             display:grid;grid-template-columns:repeat(4,1fr);gap:24px 20px;
           }
-          .fr-step{padding-top:20px;border-top:1px solid var(--fr-line);}
+          .fr-step{padding-top:20px;border-top:2px solid var(--fr-warm-soft);}
           .fr-step .n{
             font-size:12px;font-weight:700;letter-spacing:0.08em;
             color:var(--fr-gold);margin-bottom:8px;
@@ -470,6 +512,7 @@ export default function FranchisePage() {
           .fr-faq{
             border-top:1px solid var(--fr-line);
             padding:120px 0;
+            background:var(--fr-white);
           }
           .fr-faq .head{max-width:720px;margin-bottom:56px;}
           .fr-faq .eyebrow{
@@ -498,8 +541,9 @@ export default function FranchisePage() {
           }
 
           .fr-consult{
-            border-top:1px solid var(--fr-line);
             padding:120px 0;
+            background:var(--fr-deepbrown);
+            color:var(--fr-ivory);
           }
           .fr-consult .head{max-width:720px;margin-bottom:64px;}
           .fr-consult .eyebrow{
@@ -512,12 +556,45 @@ export default function FranchisePage() {
           .fr-consult h2{
             font-size:44px;line-height:1.25;font-weight:700;
             letter-spacing:-0.02em;margin-bottom:28px;
+            color:var(--fr-ivory);
           }
           .fr-consult .lead{
             font-size:18px;line-height:1.75;font-weight:400;
-            color:var(--fr-charcoal-soft);max-width:560px;
+            color:rgba(243,239,232,.72);max-width:560px;
           }
-          .fr-consult .lead b{font-weight:600;color:var(--fr-charcoal);}
+          .fr-consult .lead b{font-weight:600;color:var(--fr-ivory);}
+          .fr-consult .fr-consult-summary{
+            background:rgba(255,255,255,.045);border-color:rgba(255,255,255,.14);
+          }
+          .fr-consult .fr-consult-summary .lbl{color:var(--fr-gold);}
+          .fr-consult .fr-consult-summary dl .row{border-top-color:rgba(255,255,255,.12);}
+          .fr-consult .fr-consult-summary dt{color:rgba(243,239,232,.55);}
+          .fr-consult .fr-consult-summary dd{color:var(--fr-ivory);}
+          .fr-consult .fr-consult-summary .empty{color:rgba(243,239,232,.65);}
+          .fr-consult .fr-field label,.fr-consult .fr-field-label{color:var(--fr-ivory);}
+          .fr-consult .fr-optional{color:rgba(243,239,232,.5);}
+          .fr-consult .fr-field input,.fr-consult .fr-field textarea{
+            background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.18);color:var(--fr-ivory);
+          }
+          .fr-consult .fr-field input::placeholder,.fr-consult .fr-field textarea::placeholder{
+            color:rgba(243,239,232,.4);
+          }
+          .fr-consult .fr-field input:focus,.fr-consult .fr-field textarea:focus{border-color:var(--fr-gold);}
+          .fr-consult .fr-radio{
+            background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.18);color:rgba(243,239,232,.8);
+          }
+          .fr-consult .fr-radio:hover{border-color:rgba(255,255,255,.4);}
+          .fr-consult .fr-radio[aria-pressed="true"]{
+            background:var(--fr-gold);border-color:var(--fr-gold);color:var(--fr-deepbrown);
+          }
+          .fr-consult .fr-back{color:var(--fr-ivory);border-color:rgba(255,255,255,.25);}
+          .fr-consult .fr-back:hover{border-color:var(--fr-ivory);}
+          .fr-consult .fr-next{background:var(--fr-gold);color:var(--fr-deepbrown);border-color:var(--fr-gold);}
+          .fr-consult .fr-next:hover:not(:disabled){background:#c49a4a;}
+          .fr-consult .fr-contact{border-top-color:rgba(255,255,255,.14);}
+          .fr-consult .fr-contact-label{color:rgba(243,239,232,.55);}
+          .fr-consult .fr-contact-value{color:var(--fr-ivory);}
+          .fr-consult .fr-contact-item:hover .fr-contact-value{color:var(--fr-gold);}
           .fr-consult-grid{
             display:grid;grid-template-columns:320px 1fr;gap:48px;
             align-items:start;
@@ -650,6 +727,11 @@ export default function FranchisePage() {
             .fr-faq{padding:80px 0;}
             .fr-faq h2{font-size:30px;}
             .fr-faq .head{margin-bottom:40px;}
+            .fr-hero::before{width:280px;height:280px;right:-100px;bottom:-120px;}
+            .fr-hero::after{display:none;}
+            .fr-model{background-size:40px 40px;}
+            .fr-region{background-size:48px 48px;}
+            .fr-startup{background-size:18px 18px;}
           }
         `,
         }}
