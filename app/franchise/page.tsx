@@ -104,31 +104,31 @@ export default function FranchisePage() {
             pointer-events:none;
           }
           .fr-hero .fr-wrap{position:relative;z-index:1;}
-          .fr-hero-row{display:flex;align-items:center;gap:32px;}
-          .fr-hero-text{flex:1 1 47%;min-width:0;}
+          .fr-hero-row{display:flex;align-items:center;gap:24px;}
+          .fr-hero-text{flex:1 1 46%;min-width:0;}
           .fr-hero-char{
-            flex:1 1 49%;display:flex;flex-direction:column;align-items:center;
-            gap:22px;min-width:0;
+            flex:1 1 50%;display:flex;flex-direction:column;align-items:center;
+            gap:12px;min-width:0;
           }
           .fr-hero-visual-main{
-            position:relative;width:100%;max-width:520px;aspect-ratio:1/0.8;
+            position:relative;width:100%;max-width:560px;aspect-ratio:1/0.74;
           }
           .fr-hero-food-main{
-            position:absolute;right:0;bottom:0;width:74%;max-width:380px;height:auto;
+            position:absolute;right:0;bottom:0;width:77%;max-width:432px;height:auto;
             display:block;filter:drop-shadow(0 20px 32px rgba(38,36,31,.18));z-index:2;
           }
           .fr-hero-char-img{
-            position:absolute;left:0;bottom:0;width:71%;max-width:365px;height:auto;
+            position:absolute;left:0;bottom:0;width:67%;max-width:375px;height:auto;
             display:block;filter:drop-shadow(0 16px 24px rgba(38,36,31,.14));z-index:1;
           }
-          .fr-hero-side-foods{display:flex;align-items:flex-end;gap:16px;}
+          .fr-hero-side-foods{display:flex;align-items:flex-end;gap:14px;margin-top:-22px;}
           .fr-hero-food-chip{
             display:block;border-radius:50%;overflow:hidden;
             border:3px solid var(--fr-paper);box-shadow:0 10px 20px rgba(38,36,31,.14);
-            width:96px;height:96px;flex:0 0 auto;
+            width:128px;height:128px;flex:0 0 auto;
           }
           .fr-hero-food-chip img{width:100%;height:100%;object-fit:cover;display:block;}
-          .fr-hero-food-chip--sm{width:76px;height:76px;}
+          .fr-hero-food-chip--sm{width:104px;height:104px;}
           .fr-hero-signature{
             font-family:'Noto Serif KR',serif;font-size:15px;font-weight:600;
             color:var(--fr-charcoal-soft);letter-spacing:-0.01em;
@@ -144,16 +144,16 @@ export default function FranchisePage() {
           .fr-kicker::after{content:"";flex:1;height:1px;background:var(--fr-line);}
           .fr-core{
             display:flex;flex-direction:column;gap:4px;
-            max-width:560px;margin-bottom:20px;
+            margin-bottom:20px;word-break:keep-all;overflow-wrap:break-word;
           }
           .fr-core .line1{
-            font-size:32px;line-height:1.34;font-weight:800;
-            letter-spacing:-0.02em;color:var(--fr-charcoal);
+            font-size:34px;line-height:1.32;font-weight:800;
+            letter-spacing:-0.03em;color:var(--fr-charcoal);
           }
-          .fr-core .line1 .hl{font-weight:800;color:var(--fr-red);}
+          .fr-core .hl{font-weight:800;color:var(--fr-red);}
           .fr-core .line2{
-            font-size:32px;line-height:1.34;font-weight:800;
-            letter-spacing:-0.02em;color:var(--fr-charcoal);
+            font-size:34px;line-height:1.32;font-weight:800;
+            letter-spacing:-0.03em;color:var(--fr-charcoal);
           }
           .fr-hero-desc{
             font-size:18px;line-height:1.6;font-weight:400;
@@ -199,6 +199,7 @@ export default function FranchisePage() {
           }
           .fr-meta .item .v{
             font-size:14px;font-weight:600;color:var(--fr-charcoal-soft);
+            word-break:keep-all;
           }
 
           .fr-model{
@@ -837,7 +838,9 @@ export default function FranchisePage() {
               <span className="line1">
                 상권이 <b className="hl">다르면</b>,
               </span>
-              <span className="line2">메뉴도 달라야 합니다.</span>
+              <span className="line2">
+                메뉴도 <b className="hl">달라야</b> 합니다.
+              </span>
             </h1>
             <p className="fr-hero-desc text-pretty">
               상권에 맞춰 메뉴가 변하는
