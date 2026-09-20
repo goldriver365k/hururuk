@@ -42,7 +42,7 @@ export default function FranchisePage() {
           }
           .fr-nav{
             display:flex;align-items:center;justify-content:space-between;
-            padding:22px 0;
+            padding:22px 0;position:relative;
           }
           .fr-logo{
             font-size:16px;font-weight:700;letter-spacing:-0.01em;
@@ -54,19 +54,28 @@ export default function FranchisePage() {
             font-size:12px;font-weight:600;letter-spacing:0.22em;
             text-transform:uppercase;color:var(--fr-warm);
           }
-          .fr-nav-right{display:flex;align-items:center;gap:20px;}
+          .fr-nav-right{display:flex;align-items:center;gap:28px;}
+          .fr-navlinks{display:flex;align-items:center;gap:24px;list-style:none;}
+          .fr-navlinks a{
+            font-size:13.5px;font-weight:600;color:var(--fr-charcoal-soft);
+            text-decoration:none;white-space:nowrap;transition:color .2s ease;
+          }
+          .fr-navlinks a:hover{color:var(--fr-gold);}
           .fr-home-link{
-            font-size:12px;font-weight:600;letter-spacing:0.02em;
-            color:var(--fr-charcoal);
-            border:1px solid var(--fr-line);
+            font-size:12px;font-weight:700;letter-spacing:0.02em;
+            color:var(--fr-ivory);
+            background:var(--fr-charcoal);
+            border:1px solid var(--fr-charcoal);
             border-radius:999px;
-            padding:6px 14px;
+            padding:8px 18px;
             text-decoration:none;
-            transition:border-color .2s,color .2s;
+            transition:opacity .2s;
             white-space:nowrap;
           }
-          .fr-home-link:hover{border-color:var(--fr-gold);color:var(--fr-gold);}
+          .fr-home-link:hover{opacity:.85;}
           .fr-home-short{display:none;}
+          .fr-navtoggle{display:none;}
+          .fr-navburger{display:none;}
 
           .fr-hero{
             min-height:calc(100vh - 67px);
@@ -416,6 +425,78 @@ export default function FranchisePage() {
             font-size:32px;font-weight:700;letter-spacing:-0.02em;
           }
 
+          .fr-startup{
+            border-top:1px solid var(--fr-line);
+            padding:120px 0;
+          }
+          .fr-startup .head{max-width:720px;margin-bottom:64px;}
+          .fr-startup .eyebrow{
+            display:inline-flex;align-items:center;gap:12px;
+            font-size:12.5px;font-weight:600;letter-spacing:0.2em;
+            text-transform:uppercase;color:var(--fr-gold);
+            margin-bottom:28px;
+          }
+          .fr-startup .eyebrow::before{content:"";width:32px;height:1px;background:var(--fr-gold);}
+          .fr-startup h2{
+            font-size:44px;line-height:1.25;font-weight:700;
+            letter-spacing:-0.02em;margin-bottom:28px;
+          }
+          .fr-startup .lead{
+            font-size:18px;line-height:1.75;font-weight:400;
+            color:var(--fr-charcoal-soft);max-width:560px;
+          }
+          .fr-startup h3.sub{
+            font-size:18px;font-weight:700;letter-spacing:-0.01em;
+            margin:64px 0 24px;
+          }
+          .fr-startup h3.sub:first-of-type{margin-top:0;}
+          .fr-costlist{border-top:1px solid var(--fr-line);}
+          .fr-costrow{
+            display:flex;align-items:center;justify-content:space-between;
+            padding:18px 4px;border-bottom:1px solid var(--fr-line);
+          }
+          .fr-costrow .k{font-size:15px;font-weight:600;color:var(--fr-charcoal);}
+          .fr-costrow .v{font-size:13.5px;font-weight:500;color:var(--fr-warm);}
+          .fr-steps{
+            display:grid;grid-template-columns:repeat(4,1fr);gap:24px 20px;
+          }
+          .fr-step{padding-top:20px;border-top:1px solid var(--fr-line);}
+          .fr-step .n{
+            font-size:12px;font-weight:700;letter-spacing:0.08em;
+            color:var(--fr-gold);margin-bottom:8px;
+          }
+          .fr-step .t{font-size:15px;font-weight:600;color:var(--fr-charcoal);}
+
+          .fr-faq{
+            border-top:1px solid var(--fr-line);
+            padding:120px 0;
+          }
+          .fr-faq .head{max-width:720px;margin-bottom:56px;}
+          .fr-faq .eyebrow{
+            display:inline-flex;align-items:center;gap:12px;
+            font-size:12.5px;font-weight:600;letter-spacing:0.2em;
+            text-transform:uppercase;color:var(--fr-gold);
+            margin-bottom:28px;
+          }
+          .fr-faq .eyebrow::before{content:"";width:32px;height:1px;background:var(--fr-gold);}
+          .fr-faq h2{
+            font-size:44px;line-height:1.25;font-weight:700;
+            letter-spacing:-0.02em;
+          }
+          .fr-faqlist{border-top:1px solid var(--fr-line);}
+          .fr-faqitem{border-bottom:1px solid var(--fr-line);}
+          .fr-faqitem summary{
+            padding:22px 4px;font-size:16px;font-weight:600;
+            color:var(--fr-charcoal);cursor:pointer;list-style:none;
+          }
+          .fr-faqitem summary::-webkit-details-marker{display:none;}
+          .fr-faqitem summary::after{content:"+";float:right;color:var(--fr-gold);}
+          .fr-faqitem[open] summary::after{content:"–";}
+          .fr-faqitem p{
+            padding:0 4px 22px;font-size:14.5px;line-height:1.75;
+            color:var(--fr-charcoal-soft);max-width:640px;
+          }
+
           .fr-consult{
             border-top:1px solid var(--fr-line);
             padding:120px 0;
@@ -507,6 +588,23 @@ export default function FranchisePage() {
           .fr-contact-value{font-size:16px;font-weight:600;color:var(--fr-charcoal);}
           .fr-contact-item:hover .fr-contact-value{color:var(--fr-gold);}
 
+          @media(max-width:960px){
+            .fr-navlinks{
+              display:none;
+              position:absolute;top:100%;left:0;right:0;
+              flex-direction:column;align-items:flex-start;gap:0;
+              background:var(--fr-paper);border-bottom:1px solid var(--fr-line);
+              padding:8px 24px 16px;
+            }
+            .fr-navlinks a{padding:12px 0;width:100%;border-top:1px solid var(--fr-line);}
+            .fr-navlinks a:first-child{border-top:none;}
+            .fr-navtoggle:checked ~ .fr-navlinks{display:flex;}
+            .fr-navburger{
+              display:inline-flex;align-items:center;justify-content:center;
+              width:34px;height:34px;font-size:20px;cursor:pointer;
+              color:var(--fr-charcoal);
+            }
+          }
           @media(max-width:820px){
             .fr-wrap{padding:0 24px;}
             .fr-core .line1{font-size:26px;}
@@ -545,6 +643,13 @@ export default function FranchisePage() {
             .fr-consult .head{margin-bottom:44px;}
             .fr-consult-grid{grid-template-columns:1fr;gap:28px;}
             .fr-btnrow .fr-back{width:auto;}
+            .fr-startup{padding:80px 0;}
+            .fr-startup h2{font-size:30px;}
+            .fr-startup .head{margin-bottom:44px;}
+            .fr-steps{grid-template-columns:repeat(2,1fr);}
+            .fr-faq{padding:80px 0;}
+            .fr-faq h2{font-size:30px;}
+            .fr-faq .head{margin-bottom:40px;}
           }
         `,
         }}
@@ -556,12 +661,23 @@ export default function FranchisePage() {
             <Link href="/" className="fr-logo">
               후루룩찹찹 <span>파트너</span>
             </Link>
+            <input type="checkbox" id="fr-navtoggle" className="fr-navtoggle" aria-hidden="true" />
+            <ul className="fr-navlinks">
+              <li><a href="#why">WHY 후루룩찹찹</a></li>
+              <li><a href="/menu-select">메뉴소개</a></li>
+              <li><a href="#start">매장모델</a></li>
+              <li><a href="#startup">창업안내</a></li>
+              <li><a href="#start">상권·점포</a></li>
+              <li><a href="#faq">FAQ</a></li>
+            </ul>
             <div className="fr-nav-right">
               <div className="fr-tag">Business Partnership</div>
-              <Link href="/" className="fr-home-link">
-                <span className="fr-home-full">HOME | 홈으로</span>
-                <span className="fr-home-short">홈으로</span>
-              </Link>
+              <a href="#consult" className="fr-home-link">
+                가맹상담
+              </a>
+              <label htmlFor="fr-navtoggle" className="fr-navburger" aria-label="메뉴 열기">
+                ☰
+              </label>
             </div>
           </div>
         </div>
@@ -602,7 +718,7 @@ export default function FranchisePage() {
         </div>
       </main>
 
-      <section className="fr-model">
+      <section className="fr-model" id="why">
         <div className="fr-wrap">
           <div className="head">
             <span className="eyebrow">Business Model</span>
@@ -684,6 +800,80 @@ export default function FranchisePage() {
                 →
               </span>
             </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="fr-startup" id="startup">
+        <div className="fr-wrap">
+          <div className="head">
+            <span className="eyebrow">Getting Started</span>
+            <h2 className="text-balance">창업안내</h2>
+            <p className="lead text-pretty">
+              창업비용과 가맹절차를 안내합니다. <b>확정되지 않은 금액은 상담을 통해 안내</b>해 드립니다.
+            </p>
+          </div>
+
+          <h3 className="sub">창업비용 항목</h3>
+          <div className="fr-costlist">
+            {["가맹비", "교육비", "인테리어", "주방설비", "간판", "가구", "초도물품", "기타"].map((item) => (
+              <div className="fr-costrow" key={item}>
+                <span className="k">{item}</span>
+                <span className="v">상담 시 안내</span>
+              </div>
+            ))}
+          </div>
+
+          <h3 className="sub">가맹절차</h3>
+          <div className="fr-steps">
+            {[
+              "상담 신청",
+              "상권 · 점포 검토",
+              "사업설명",
+              "계약",
+              "매장 설계 · 공사",
+              "조리 · 운영 교육",
+              "오픈 준비",
+              "GRAND OPEN",
+            ].map((label, i) => (
+              <div className="fr-step" key={label}>
+                <div className="n">{String(i + 1).padStart(2, "0")}</div>
+                <div className="t">{label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="fr-faq" id="faq">
+        <div className="fr-wrap">
+          <div className="head">
+            <span className="eyebrow">FAQ</span>
+            <h2 className="text-balance">자주 묻는 질문</h2>
+          </div>
+          <div className="fr-faqlist">
+            {[
+              ["최소 몇 평부터 가능한가?", "10평부터 가능합니다."],
+              ["점주는 직접 근무해야 하는가?", "상담 시 안내해 드립니다."],
+              ["몇 명이 운영하는가?", "상담 시 안내해 드립니다."],
+              [
+                "메뉴를 전부 판매해야 하는가?",
+                "상권과 매장 규모에 맞춰 메뉴 카테고리를 선택적으로 구성할 수 있습니다.",
+              ],
+              ["기존 식당을 후루룩찹찹으로 전환할 수 있는가?", "상담 시 안내해 드립니다."],
+              [
+                "상권에 따라 메뉴가 달라지는가?",
+                "네, 대학가 · 주거 상권 · 오피스 등 상권 특성에 맞춰 메뉴 구성이 달라집니다.",
+              ],
+              ["교육기간은 얼마나 되는가?", "상담 시 안내해 드립니다."],
+              ["식재료는 어떻게 공급되는가?", "상담 시 안내해 드립니다."],
+              ["가맹비와 로열티는 얼마인가?", "상담 시 안내해 드립니다."],
+            ].map(([q, a]) => (
+              <details className="fr-faqitem" key={q}>
+                <summary>{q}</summary>
+                <p>{a}</p>
+              </details>
+            ))}
           </div>
         </div>
       </section>
