@@ -51,11 +51,10 @@ export default function FranchisePage() {
             padding:22px 0;position:relative;
           }
           .fr-logo{
-            font-size:16px;font-weight:700;letter-spacing:-0.01em;
-            color:var(--fr-charcoal);
+            display:inline-flex;align-items:center;
             text-decoration:none;
           }
-          .fr-logo span{color:var(--fr-gold);}
+          .fr-logo img{height:36px;width:auto;display:block;}
           .fr-tag{
             font-size:12px;font-weight:600;letter-spacing:0.22em;
             text-transform:uppercase;color:var(--fr-warm);
@@ -741,7 +740,7 @@ export default function FranchisePage() {
         <div className="fr-wrap">
           <div className="fr-nav">
             <Link href="/" className="fr-logo">
-              후루룩찹찹 <span>파트너</span>
+              <img src="/assets/logo-new.png" alt="후루룩찹찹" />
             </Link>
             <input type="checkbox" id="fr-navtoggle" className="fr-navtoggle" aria-hidden="true" />
             <ul className="fr-navlinks">
