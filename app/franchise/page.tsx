@@ -54,7 +54,7 @@ export default function FranchisePage() {
             display:inline-flex;align-items:center;
             text-decoration:none;
           }
-          .fr-logo img{height:36px;width:auto;display:block;}
+          .fr-logo img{height:68px;width:auto;display:block;}
           .fr-tag{
             font-size:12px;font-weight:600;letter-spacing:0.22em;
             text-transform:uppercase;color:var(--fr-warm);
@@ -688,6 +688,7 @@ export default function FranchisePage() {
             .fr-hero-desc{font-size:16px;}
             .fr-sub{font-size:20px;}
             .fr-tag{display:none;}
+            .fr-logo img{height:52px;}
             .fr-home-link{padding:5px 12px;}
             .fr-home-full{display:none;}
             .fr-home-short{display:inline;}
