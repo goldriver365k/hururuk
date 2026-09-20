@@ -104,75 +104,101 @@ export default function FranchisePage() {
             pointer-events:none;
           }
           .fr-hero .fr-wrap{position:relative;z-index:1;}
-          .fr-hero-row{display:flex;align-items:center;gap:40px;}
-          .fr-hero-text{flex:1 1 60%;min-width:0;}
+          .fr-hero-row{display:flex;align-items:center;gap:32px;}
+          .fr-hero-text{flex:1 1 47%;min-width:0;}
           .fr-hero-char{
-            flex:1 1 36%;display:flex;justify-content:center;align-items:center;
-            min-width:0;
+            flex:1 1 49%;display:flex;flex-direction:column;align-items:center;
+            gap:22px;min-width:0;
           }
-          .fr-hero-char img{
-            width:100%;max-width:300px;height:auto;display:block;
-            filter:drop-shadow(0 18px 30px rgba(38,36,31,.16));
+          .fr-hero-visual-main{
+            position:relative;width:100%;max-width:520px;aspect-ratio:1/0.8;
           }
+          .fr-hero-food-main{
+            position:absolute;right:0;bottom:0;width:74%;max-width:380px;height:auto;
+            display:block;filter:drop-shadow(0 20px 32px rgba(38,36,31,.18));z-index:2;
+          }
+          .fr-hero-char-img{
+            position:absolute;left:0;bottom:0;width:71%;max-width:365px;height:auto;
+            display:block;filter:drop-shadow(0 16px 24px rgba(38,36,31,.14));z-index:1;
+          }
+          .fr-hero-side-foods{display:flex;align-items:flex-end;gap:16px;}
+          .fr-hero-food-chip{
+            display:block;border-radius:50%;overflow:hidden;
+            border:3px solid var(--fr-paper);box-shadow:0 10px 20px rgba(38,36,31,.14);
+            width:96px;height:96px;flex:0 0 auto;
+          }
+          .fr-hero-food-chip img{width:100%;height:100%;object-fit:cover;display:block;}
+          .fr-hero-food-chip--sm{width:76px;height:76px;}
+          .fr-hero-signature{
+            font-family:'Noto Serif KR',serif;font-size:15px;font-weight:600;
+            color:var(--fr-charcoal-soft);letter-spacing:-0.01em;
+          }
+          .fr-hero-signature b{color:var(--fr-red);font-weight:800;}
           .fr-kicker{
             display:inline-flex;align-items:center;gap:12px;
             font-size:12.5px;font-weight:600;letter-spacing:0.2em;
             text-transform:uppercase;color:var(--fr-gold);
-            margin:8px 0 32px;
+            margin:0 0 24px;
           }
           .fr-kicker::before{content:"";width:32px;height:1px;background:var(--fr-gold);}
           .fr-kicker::after{content:"";flex:1;height:1px;background:var(--fr-line);}
           .fr-core{
-            display:flex;flex-direction:column;gap:8px;
-            max-width:820px;margin-bottom:28px;
+            display:flex;flex-direction:column;gap:4px;
+            max-width:560px;margin-bottom:20px;
           }
           .fr-core .line1{
-            font-size:38px;line-height:1.28;font-weight:700;
-            letter-spacing:-0.01em;color:var(--fr-charcoal);
+            font-size:32px;line-height:1.34;font-weight:800;
+            letter-spacing:-0.02em;color:var(--fr-charcoal);
           }
+          .fr-core .line1 .hl{font-weight:800;color:var(--fr-red);}
           .fr-core .line2{
-            font-size:46px;line-height:1.24;font-weight:800;
-            letter-spacing:-0.01em;color:var(--fr-red);
-            display:inline-block;padding-bottom:12px;
-            background-image:linear-gradient(var(--fr-gold),var(--fr-gold));
-            background-repeat:no-repeat;background-size:100% 3px;background-position:0 100%;
+            font-size:32px;line-height:1.34;font-weight:800;
+            letter-spacing:-0.02em;color:var(--fr-charcoal);
           }
           .fr-hero-desc{
-            font-size:18px;line-height:1.75;font-weight:400;
+            font-size:18px;line-height:1.6;font-weight:400;
             color:var(--fr-charcoal-soft);
-            max-width:560px;margin-bottom:8px;
+            max-width:480px;margin-bottom:18px;
           }
-          .fr-hero-desc b{font-weight:700;color:var(--fr-charcoal);}
-          .fr-sub{
-            font-size:24px;line-height:1.5;font-weight:600;
-            letter-spacing:-0.01em;color:var(--fr-charcoal-soft);
-            max-width:640px;margin-bottom:40px;
+          .fr-hero-desc b{font-weight:700;color:var(--fr-red);}
+          .fr-hero-kw{
+            font-size:12.5px;font-weight:600;letter-spacing:0.14em;
+            text-transform:uppercase;color:var(--fr-warm);
+            margin-bottom:36px;
           }
-          .fr-cta{
+          .fr-hero-ctas{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+          .fr-hero-cta-primary{
             display:inline-flex;align-items:center;gap:12px;
-            align-self:flex-start;
-            background:var(--fr-charcoal);color:var(--fr-ivory);
-            font-size:15px;font-weight:600;
-            padding:18px 36px;border-radius:2px;
-            border:1px solid var(--fr-charcoal);
+            background:var(--fr-red);color:var(--fr-ivory);
+            font-size:15px;font-weight:700;
+            padding:18px 34px;border-radius:2px;
+            border:1px solid var(--fr-red);
             transition:background .2s ease,transform .2s ease;
           }
-          .fr-cta:hover{background:#000;transform:translateY(-1px);}
-          .fr-cta .arrow{
-            display:inline-block;transition:transform .2s ease;
+          .fr-hero-cta-primary:hover{background:#961F15;transform:translateY(-1px);}
+          .fr-hero-cta-primary .arrow{display:inline-block;transition:transform .2s ease;}
+          .fr-hero-cta-primary:hover .arrow{transform:translateX(4px);}
+          .fr-hero-cta-secondary{
+            display:inline-flex;align-items:center;
+            background:var(--fr-paper);color:var(--fr-charcoal);
+            font-size:15px;font-weight:600;
+            padding:18px 30px;border-radius:2px;
+            border:1px solid var(--fr-line);
+            transition:border-color .2s ease,transform .2s ease;
           }
-          .fr-cta:hover .arrow{transform:translateX(4px);}
+          .fr-hero-cta-secondary:hover{border-color:var(--fr-charcoal);transform:translateY(-1px);}
 
           .fr-meta{
-            display:flex;gap:56px;margin-top:80px;
-            padding-top:36px;border-top:1px solid var(--fr-line);
+            display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:56px;
+            padding-top:32px;border-top:1px solid var(--fr-line);
           }
+          .fr-meta .item{min-width:0;}
           .fr-meta .item .k{
-            font-size:12px;font-weight:600;letter-spacing:0.14em;
-            text-transform:uppercase;color:var(--fr-warm);margin-bottom:8px;
+            font-size:12px;font-weight:700;letter-spacing:0.1em;
+            color:var(--fr-gold);margin-bottom:8px;
           }
           .fr-meta .item .v{
-            font-size:15px;font-weight:500;color:var(--fr-charcoal-soft);
+            font-size:14px;font-weight:600;color:var(--fr-charcoal-soft);
           }
 
           .fr-model{
@@ -709,20 +735,27 @@ export default function FranchisePage() {
           }
           @media(max-width:820px){
             .fr-wrap{padding:0 24px;}
-            .fr-hero-row{flex-direction:column;gap:36px;}
-            .fr-hero-char{order:2;}
+            .fr-hero-row{flex-direction:column;gap:28px;}
+            .fr-hero-char{order:2;gap:16px;}
             .fr-hero-text{order:1;flex-basis:auto;width:100%;}
-            .fr-hero-char img{max-width:220px;}
-            .fr-core .line1{font-size:26px;}
-            .fr-core .line2{font-size:30px;}
-            .fr-hero-desc{font-size:16px;}
-            .fr-sub{font-size:20px;}
+            .fr-hero-visual-main{max-width:260px;aspect-ratio:1/0.8;}
+            .fr-hero-food-main{max-width:200px;}
+            .fr-hero-char-img{max-width:160px;}
+            .fr-hero-side-foods{display:none;}
+            .fr-hero-signature{font-size:14px;}
+            .fr-core{max-width:100%;}
+            .fr-core .line1{font-size:27px;}
+            .fr-core .line2{font-size:27px;}
+            .fr-hero-desc{font-size:16px;max-width:100%;}
+            .fr-hero-kw{margin-bottom:28px;}
+            .fr-hero-ctas{flex-direction:column;align-items:stretch;gap:12px;}
+            .fr-hero-cta-primary,.fr-hero-cta-secondary{justify-content:center;padding:17px 24px;}
             .fr-tag{display:none;}
             .fr-logo img{height:52px;}
             .fr-home-link{padding:5px 12px;}
             .fr-home-full{display:none;}
             .fr-home-short{display:inline;}
-            .fr-meta{flex-direction:column;gap:24px;}
+            .fr-meta{display:grid;grid-template-columns:1fr 1fr;gap:20px 16px;margin-top:40px;padding-top:28px;}
             .fr-model{padding:80px 0;}
             .fr-model h2{font-size:30px;}
             .fr-model .head{margin-bottom:48px;}
@@ -799,40 +832,75 @@ export default function FranchisePage() {
       <main className="fr-hero">
         <div className="fr-wrap fr-hero-row">
           <div className="fr-hero-text">
+            <span className="fr-kicker">Franchise Business</span>
             <h1 className="fr-core text-balance">
-              <span className="line1">매장이 메뉴에 맞추는 것이 아니라,</span>
-              <span className="line2">메뉴가 상권에 맞춰 변합니다.</span>
+              <span className="line1">
+                상권이 <b className="hl">다르면</b>,
+              </span>
+              <span className="line2">메뉴도 달라야 합니다.</span>
             </h1>
             <p className="fr-hero-desc text-pretty">
-              여러 <b>전문메뉴</b>를 한곳에서 즐기는 <b>신개념 분식</b> 브랜드입니다.
+              상권에 맞춰 메뉴가 변하는
+              <br />한 그릇 전문점 <b>후루룩찹찹</b>
             </p>
-            <span className="fr-kicker">Partner Program</span>
-            <h2 className="fr-sub text-balance">후루룩찹찹 파트너가 되세요</h2>
-            <a href="#start" className="fr-cta">
-              내 매장 만들어보기
-              <span className="arrow" aria-hidden="true">
-                →
-              </span>
-            </a>
+            <div className="fr-hero-kw">One Kitchen · Multi Menu</div>
+
+            <div className="fr-hero-ctas">
+              <a href="#consult" className="fr-hero-cta-primary">
+                가맹 상담하기
+                <span className="arrow" aria-hidden="true">
+                  →
+                </span>
+              </a>
+              <a href="#why" className="fr-hero-cta-secondary">
+                브랜드 알아보기
+              </a>
+            </div>
 
             <div className="fr-meta">
               <div className="item">
-                <div className="k">Concept</div>
-                <div className="v">상권 맞춤형 한 그릇 전문점</div>
+                <div className="k">01</div>
+                <div className="v">상권 맞춤 메뉴</div>
               </div>
               <div className="item">
-                <div className="k">Model</div>
-                <div className="v">유연한 메뉴 구성 · 낮은 초기 비용</div>
+                <div className="k">02</div>
+                <div className="v">소형매장 대응</div>
               </div>
               <div className="item">
-                <div className="k">Support</div>
-                <div className="v">브랜드 · 운영 · 상권 분석 지원</div>
+                <div className="k">03</div>
+                <div className="v">한 주방 다메뉴</div>
+              </div>
+              <div className="item">
+                <div className="k">04</div>
+                <div className="v">본사 운영지원</div>
               </div>
             </div>
           </div>
 
           <div className="fr-hero-char">
-            <img src="/assets/characters/01-fortune-bag.png" alt="후루룩찹찹 복주머니 캐릭터" />
+            <div className="fr-hero-visual-main">
+              <img
+                className="fr-hero-food-main"
+                src="/assets/menu/hwasan-bulbaek.png"
+                alt="후루룩찹찹 대표메뉴 화산불백"
+              />
+              <img
+                className="fr-hero-char-img"
+                src="/assets/characters/01-fortune-bag.png"
+                alt="후루룩찹찹 복주머니 캐릭터"
+              />
+            </div>
+            <div className="fr-hero-side-foods">
+              <span className="fr-hero-food-chip">
+                <img src="/assets/menu/woosamgyeop-bomb-pho.png" alt="우삼겹폭탄쌀국수" loading="lazy" />
+              </span>
+              <span className="fr-hero-food-chip fr-hero-food-chip--sm">
+                <img src="/assets/menu/meat-ragu-spaghetti.png" alt="라구스파게티" loading="lazy" />
+              </span>
+            </div>
+            <p className="fr-hero-signature">
+              당신의 가게에 <b>복</b>을 더하다
+            </p>
           </div>
         </div>
       </main>
