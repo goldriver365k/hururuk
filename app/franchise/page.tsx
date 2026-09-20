@@ -104,6 +104,16 @@ export default function FranchisePage() {
             pointer-events:none;
           }
           .fr-hero .fr-wrap{position:relative;z-index:1;}
+          .fr-hero-row{display:flex;align-items:center;gap:40px;}
+          .fr-hero-text{flex:1 1 60%;min-width:0;}
+          .fr-hero-char{
+            flex:1 1 36%;display:flex;justify-content:center;align-items:center;
+            min-width:0;
+          }
+          .fr-hero-char img{
+            width:100%;max-width:300px;height:auto;display:block;
+            filter:drop-shadow(0 18px 30px rgba(38,36,31,.16));
+          }
           .fr-kicker{
             display:inline-flex;align-items:center;gap:12px;
             font-size:12.5px;font-weight:600;letter-spacing:0.2em;
@@ -699,6 +709,10 @@ export default function FranchisePage() {
           }
           @media(max-width:820px){
             .fr-wrap{padding:0 24px;}
+            .fr-hero-row{flex-direction:column;gap:36px;}
+            .fr-hero-char{order:2;}
+            .fr-hero-text{order:1;flex-basis:auto;width:100%;}
+            .fr-hero-char img{max-width:220px;}
             .fr-core .line1{font-size:26px;}
             .fr-core .line2{font-size:30px;}
             .fr-hero-desc{font-size:16px;}
@@ -783,36 +797,42 @@ export default function FranchisePage() {
       </header>
 
       <main className="fr-hero">
-        <div className="fr-wrap">
-          <h1 className="fr-core text-balance">
-            <span className="line1">매장이 메뉴에 맞추는 것이 아니라,</span>
-            <span className="line2">메뉴가 상권에 맞춰 변합니다.</span>
-          </h1>
-          <p className="fr-hero-desc text-pretty">
-            여러 <b>전문메뉴</b>를 한곳에서 즐기는 <b>신개념 분식</b> 브랜드입니다.
-          </p>
-          <span className="fr-kicker">Partner Program</span>
-          <h2 className="fr-sub text-balance">후루룩찹찹 파트너가 되세요</h2>
-          <a href="#start" className="fr-cta">
-            내 매장 만들어보기
-            <span className="arrow" aria-hidden="true">
-              →
-            </span>
-          </a>
+        <div className="fr-wrap fr-hero-row">
+          <div className="fr-hero-text">
+            <h1 className="fr-core text-balance">
+              <span className="line1">매장이 메뉴에 맞추는 것이 아니라,</span>
+              <span className="line2">메뉴가 상권에 맞춰 변합니다.</span>
+            </h1>
+            <p className="fr-hero-desc text-pretty">
+              여러 <b>전문메뉴</b>를 한곳에서 즐기는 <b>신개념 분식</b> 브랜드입니다.
+            </p>
+            <span className="fr-kicker">Partner Program</span>
+            <h2 className="fr-sub text-balance">후루룩찹찹 파트너가 되세요</h2>
+            <a href="#start" className="fr-cta">
+              내 매장 만들어보기
+              <span className="arrow" aria-hidden="true">
+                →
+              </span>
+            </a>
 
-          <div className="fr-meta">
-            <div className="item">
-              <div className="k">Concept</div>
-              <div className="v">상권 맞춤형 한 그릇 전문점</div>
+            <div className="fr-meta">
+              <div className="item">
+                <div className="k">Concept</div>
+                <div className="v">상권 맞춤형 한 그릇 전문점</div>
+              </div>
+              <div className="item">
+                <div className="k">Model</div>
+                <div className="v">유연한 메뉴 구성 · 낮은 초기 비용</div>
+              </div>
+              <div className="item">
+                <div className="k">Support</div>
+                <div className="v">브랜드 · 운영 · 상권 분석 지원</div>
+              </div>
             </div>
-            <div className="item">
-              <div className="k">Model</div>
-              <div className="v">유연한 메뉴 구성 · 낮은 초기 비용</div>
-            </div>
-            <div className="item">
-              <div className="k">Support</div>
-              <div className="v">브랜드 · 운영 · 상권 분석 지원</div>
-            </div>
+          </div>
+
+          <div className="fr-hero-char">
+            <img src="/assets/characters/01-fortune-bag.png" alt="후루룩찹찹 복주머니 캐릭터" />
           </div>
         </div>
       </main>
