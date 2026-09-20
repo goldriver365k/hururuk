@@ -274,6 +274,22 @@ export default function FranchisePage() {
           .fr-opt[aria-pressed="true"] .mark{color:var(--fr-gold);}
           .fr-opt[aria-pressed="true"] .name{color:var(--fr-ivory);}
           .fr-opt[aria-pressed="true"] .area{color:var(--fr-warm);}
+
+          .fr-opt--area{display:flex;align-items:center;justify-content:space-between;gap:8px;}
+          .fr-opt-text{flex:0 0 45%;min-width:0;}
+          .fr-opt-illust{
+            flex:1 1 auto;display:flex;align-items:center;justify-content:center;
+            border-radius:50%;color:var(--fr-charcoal-soft);
+          }
+          .fr-opt-illust svg{
+            width:88px;height:88px;
+            filter:drop-shadow(0 6px 10px rgba(38,36,31,.12));
+          }
+          .fr-opt--univ .fr-opt-illust{background:radial-gradient(circle, rgba(217,119,6,.10), transparent 72%);}
+          .fr-opt--resid .fr-opt-illust{background:radial-gradient(circle, rgba(176,138,62,.12), transparent 72%);}
+          .fr-opt--office .fr-opt-illust{background:radial-gradient(circle, rgba(107,131,145,.12), transparent 72%);}
+          .fr-opt[aria-pressed="true"] .fr-opt-illust{color:var(--fr-ivory);}
+
           .fr-desc{
             min-height:0;
             border-left:2px solid var(--fr-gold);
@@ -703,6 +719,7 @@ export default function FranchisePage() {
             .fr-region .head{margin-bottom:44px;}
             .fr-opts{grid-template-columns:1fr;gap:14px;}
             .fr-opt{padding:32px 28px;}
+            .fr-opt-illust svg{width:64px;height:64px;}
             .fr-next{width:100%;justify-content:center;}
             .fr-menus{grid-template-columns:1fr;gap:12px;}
             .fr-btnrow .fr-next,.fr-btnrow .fr-back{flex:1;justify-content:center;}

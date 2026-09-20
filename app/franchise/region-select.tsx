@@ -1,10 +1,57 @@
 "use client"
 
-import { useState } from "react"
+import { useState, type ReactElement } from "react"
 import { categoryOrder, categoryLabels, menuItems, type MenuCategory } from "@/lib/menu"
 
 type RegionKey = "univ" | "resid" | "office"
 type SizeKey = "small" | "medium" | "large"
+
+const AREA_ILLUST: Record<RegionKey, ReactElement> = {
+  univ: (
+    <svg viewBox="0 0 140 140" fill="none" aria-hidden="true">
+      <polygon points="18,72 70,38 122,72" fill="var(--fr-paper)" stroke="currentColor" strokeWidth="3" strokeLinejoin="round" />
+      <rect x="24" y="72" width="92" height="42" fill="var(--fr-paper)" stroke="currentColor" strokeWidth="3" />
+      <rect x="34" y="80" width="9" height="30" fill="var(--fr-graywash)" stroke="currentColor" strokeWidth="2" strokeOpacity="0.7" />
+      <rect x="57" y="80" width="9" height="30" fill="var(--fr-graywash)" stroke="currentColor" strokeWidth="2" strokeOpacity="0.7" />
+      <rect x="80" y="80" width="9" height="30" fill="var(--fr-graywash)" stroke="currentColor" strokeWidth="2" strokeOpacity="0.7" />
+      <rect x="97" y="80" width="9" height="30" fill="var(--fr-graywash)" stroke="currentColor" strokeWidth="2" strokeOpacity="0.7" />
+      <rect x="16" y="114" width="108" height="7" fill="currentColor" fillOpacity="0.6" />
+      <polygon points="92,22 122,32 92,42 62,32" fill="var(--fr-gold)" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
+      <circle cx="92" cy="32" r="3.5" fill="currentColor" />
+      <path d="M92 32 L104 40 L104 50" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" />
+      <circle cx="104" cy="52" r="3" fill="currentColor" />
+    </svg>
+  ),
+  resid: (
+    <svg viewBox="0 0 140 140" fill="none" aria-hidden="true">
+      <rect x="78" y="46" width="46" height="68" fill="var(--fr-graywash)" stroke="currentColor" strokeWidth="3" />
+      <rect x="87" y="56" width="10" height="10" fill="var(--fr-paper)" stroke="currentColor" strokeWidth="1.5" strokeOpacity="0.7" />
+      <rect x="105" y="56" width="10" height="10" fill="var(--fr-paper)" stroke="currentColor" strokeWidth="1.5" strokeOpacity="0.7" />
+      <rect x="87" y="74" width="10" height="10" fill="var(--fr-paper)" stroke="currentColor" strokeWidth="1.5" strokeOpacity="0.7" />
+      <rect x="105" y="74" width="10" height="10" fill="var(--fr-paper)" stroke="currentColor" strokeWidth="1.5" strokeOpacity="0.7" />
+      <rect x="87" y="92" width="10" height="10" fill="var(--fr-paper)" stroke="currentColor" strokeWidth="1.5" strokeOpacity="0.7" />
+      <rect x="105" y="92" width="10" height="10" fill="var(--fr-paper)" stroke="currentColor" strokeWidth="1.5" strokeOpacity="0.7" />
+      <rect x="60" y="98" width="6" height="18" fill="currentColor" fillOpacity="0.55" />
+      <circle cx="63" cy="86" r="16" fill="var(--fr-warm-soft)" stroke="currentColor" strokeWidth="2.5" />
+      <polygon points="8,70 42,42 76,70" fill="var(--fr-paper)" stroke="currentColor" strokeWidth="3" strokeLinejoin="round" />
+      <rect x="14" y="70" width="56" height="46" fill="var(--fr-paper)" stroke="currentColor" strokeWidth="3" />
+      <rect x="22" y="90" width="14" height="26" fill="var(--fr-gold)" stroke="currentColor" strokeWidth="2" />
+      <rect x="48" y="82" width="14" height="14" fill="var(--fr-graywash)" stroke="currentColor" strokeWidth="2" />
+      <path d="M48 89 H62 M55 82 V96" stroke="currentColor" strokeWidth="1.5" />
+    </svg>
+  ),
+  office: (
+    <svg viewBox="0 0 140 140" fill="none" aria-hidden="true">
+      <rect x="14" y="58" width="30" height="58" fill="var(--fr-graywash)" stroke="currentColor" strokeWidth="2.5" />
+      <rect x="44" y="20" width="58" height="96" fill="var(--fr-paper)" stroke="currentColor" strokeWidth="3" />
+      <path d="M44 34H102 M44 48H102 M44 62H102 M44 76H102 M44 90H102 M44 104H102" stroke="currentColor" strokeWidth="1.2" strokeOpacity="0.55" />
+      <path d="M58 20V116 M73 20V116 M88 20V116" stroke="currentColor" strokeWidth="1.2" strokeOpacity="0.55" />
+      <path d="M96 96 q6 -10 14 0" stroke="currentColor" strokeWidth="2.5" fill="none" strokeLinecap="round" />
+      <rect x="90" y="96" width="36" height="24" rx="4" fill="var(--fr-gold)" stroke="currentColor" strokeWidth="2.5" />
+      <rect x="104" y="103" width="8" height="6" fill="currentColor" />
+    </svg>
+  ),
+}
 
 const OPTIONS: { key: RegionKey; mark: string; name: string; desc: string }[] = [
   {
@@ -117,12 +164,15 @@ export function RegionSelect() {
                 <button
                   key={o.key}
                   type="button"
-                  className="fr-opt"
+                  className={`fr-opt fr-opt--area fr-opt--${o.key}`}
                   aria-pressed={region === o.key}
                   onClick={() => selectRegion(o.key)}
                 >
-                  <div className="mark">{o.mark}</div>
-                  <div className="name">{o.name}</div>
+                  <div className="fr-opt-text">
+                    <div className="mark">{o.mark}</div>
+                    <div className="name">{o.name}</div>
+                  </div>
+                  <div className="fr-opt-illust">{AREA_ILLUST[o.key]}</div>
                 </button>
               ))}
             </div>
