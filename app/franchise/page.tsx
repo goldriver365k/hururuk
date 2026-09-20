@@ -111,24 +111,12 @@ export default function FranchisePage() {
             gap:12px;min-width:0;
           }
           .fr-hero-visual-main{
-            position:relative;width:100%;max-width:560px;aspect-ratio:1/0.74;
+            width:100%;max-width:460px;display:flex;justify-content:center;
           }
           .fr-hero-food-main{
-            position:absolute;right:0;bottom:0;width:77%;max-width:432px;height:auto;
-            display:block;filter:drop-shadow(0 20px 32px rgba(38,36,31,.18));z-index:2;
+            width:100%;height:auto;display:block;
+            filter:drop-shadow(0 20px 32px rgba(38,36,31,.18));
           }
-          .fr-hero-char-img{
-            position:absolute;left:0;bottom:0;width:67%;max-width:375px;height:auto;
-            display:block;filter:drop-shadow(0 16px 24px rgba(38,36,31,.14));z-index:1;
-          }
-          .fr-hero-side-foods{display:flex;align-items:flex-end;gap:14px;margin-top:-22px;}
-          .fr-hero-food-chip{
-            display:block;border-radius:50%;overflow:hidden;
-            border:3px solid var(--fr-paper);box-shadow:0 10px 20px rgba(38,36,31,.14);
-            width:128px;height:128px;flex:0 0 auto;
-          }
-          .fr-hero-food-chip img{width:100%;height:100%;object-fit:cover;display:block;}
-          .fr-hero-food-chip--sm{width:104px;height:104px;}
           .fr-hero-signature{
             font-family:'Noto Serif KR',serif;font-size:15px;font-weight:600;
             color:var(--fr-charcoal-soft);letter-spacing:-0.01em;
@@ -739,10 +727,7 @@ export default function FranchisePage() {
             .fr-hero-row{flex-direction:column;gap:28px;}
             .fr-hero-char{order:2;gap:16px;}
             .fr-hero-text{order:1;flex-basis:auto;width:100%;}
-            .fr-hero-visual-main{max-width:260px;aspect-ratio:1/0.8;}
-            .fr-hero-food-main{max-width:200px;}
-            .fr-hero-char-img{max-width:160px;}
-            .fr-hero-side-foods{display:none;}
+            .fr-hero-visual-main{max-width:260px;}
             .fr-hero-signature{font-size:14px;}
             .fr-core{max-width:100%;}
             .fr-core .line1{font-size:27px;}
@@ -887,19 +872,6 @@ export default function FranchisePage() {
                 src="/assets/menu/hwasan-bulbaek.png"
                 alt="후루룩찹찹 대표메뉴 화산불백"
               />
-              <img
-                className="fr-hero-char-img"
-                src="/assets/characters/01-fortune-bag.png"
-                alt="후루룩찹찹 복주머니 캐릭터"
-              />
-            </div>
-            <div className="fr-hero-side-foods">
-              <span className="fr-hero-food-chip">
-                <img src="/assets/menu/woosamgyeop-bomb-pho.png" alt="우삼겹폭탄쌀국수" loading="lazy" />
-              </span>
-              <span className="fr-hero-food-chip fr-hero-food-chip--sm">
-                <img src="/assets/menu/meat-ragu-spaghetti.png" alt="라구스파게티" loading="lazy" />
-              </span>
             </div>
             <p className="fr-hero-signature">
               당신의 가게에 <b>복</b>을 더하다
