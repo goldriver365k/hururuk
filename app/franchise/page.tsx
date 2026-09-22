@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { RegionSelect } from "./region-select"
 import { ConsultForm } from "./consult-form"
+import { HeroIntro } from "./hero-intro"
 
 export const metadata: Metadata = {
   title: "후루룩찹찹 파트너 | 사업 제안",
@@ -104,6 +105,27 @@ export default function FranchisePage() {
             pointer-events:none;
           }
           .fr-hero .fr-wrap{position:relative;z-index:1;}
+          .fr-hero-intro{
+            display:none;
+            position:fixed;inset:0;z-index:999;
+            background:#0a0a0a;
+            align-items:center;justify-content:center;
+            cursor:pointer;
+            opacity:1;transition:opacity .5s ease;
+          }
+          .fr-hero-intro.is-closing{opacity:0;}
+          .fr-hero-intro-video{
+            width:100%;height:100%;object-fit:cover;display:block;
+          }
+          .fr-hero-intro-skip{
+            position:absolute;right:28px;bottom:28px;
+            color:#fff;font-size:13px;font-weight:600;letter-spacing:.04em;
+            padding:10px 18px;border:1px solid rgba(255,255,255,.5);border-radius:999px;
+            background:rgba(0,0,0,.3);
+          }
+          @media(min-width:821px){
+            .fr-hero-intro{display:flex;}
+          }
           .fr-hero-row{display:flex;align-items:center;gap:24px;}
           .fr-hero-text{flex:1 1 46%;min-width:0;}
           .fr-hero-char{
@@ -794,6 +816,8 @@ export default function FranchisePage() {
         `,
         }}
       />
+
+      <HeroIntro />
 
       <header className="fr-header">
         <div className="fr-wrap">
