@@ -115,6 +115,7 @@ export default function FranchisePage() {
           }
           .fr-hero-food-main{
             width:100%;height:auto;display:block;
+            aspect-ratio:16/9;object-fit:cover;border-radius:4px;
             filter:drop-shadow(0 20px 32px rgba(38,36,31,.18));
           }
           .fr-hero-signature{
@@ -724,10 +725,17 @@ export default function FranchisePage() {
           }
           @media(max-width:820px){
             .fr-wrap{padding:0 24px;}
-            .fr-hero-row{flex-direction:column;gap:28px;}
-            .fr-hero-char{order:2;gap:16px;}
+            .fr-hero{padding:0 0 64px;}
+            .fr-hero-row{flex-direction:column;gap:28px;min-width:0;margin-left:0;margin-right:0;}
+            .fr-hero-char{order:0;gap:16px;width:100%;align-items:stretch;}
             .fr-hero-text{order:1;flex-basis:auto;width:100%;}
-            .fr-hero-visual-main{max-width:260px;}
+            .fr-hero-visual-main{
+              max-width:none;width:100vw;margin-left:50%;transform:translateX(-50%);
+            }
+            .fr-hero-food-main{
+              width:100vw;height:100dvh;aspect-ratio:auto;object-fit:cover;
+              border-radius:0;filter:none;
+            }
             .fr-hero-signature{font-size:14px;}
             .fr-core{max-width:100%;}
             .fr-core .line1{font-size:27px;}
@@ -867,10 +875,15 @@ export default function FranchisePage() {
 
           <div className="fr-hero-char">
             <div className="fr-hero-visual-main">
-              <img
+              <video
                 className="fr-hero-food-main"
-                src="/assets/menu/hwasan-bulbaek.png"
-                alt="후루룩찹찹 대표메뉴 화산불백"
+                src="/assets/video/hero-main.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="auto"
+                aria-label="후루룩찹찹 브랜드 영상"
               />
             </div>
             <p className="fr-hero-signature">
