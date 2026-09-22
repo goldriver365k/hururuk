@@ -892,14 +892,11 @@ export default function FranchisePage() {
             <div className="fr-hero-kw">One Kitchen · Multi Menu</div>
 
             <div className="fr-hero-ctas">
-              <a href="#consult" className="fr-hero-cta-primary">
-                가맹 상담하기
+              <a href="#start" className="fr-hero-cta-primary">
+                내가 원하는 매장 만들어 보기
                 <span className="arrow" aria-hidden="true">
                   →
                 </span>
-              </a>
-              <a href="#start" className="fr-hero-cta-secondary">
-                내가 원하는 매장 만들어 보기
               </a>
             </div>
 
