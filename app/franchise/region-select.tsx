@@ -153,10 +153,11 @@ export function RegionSelect() {
           <>
             <div className="head">
               <span className="eyebrow">Location</span>
-              <h2 className="text-balance">어디에서 시작하시나요?</h2>
+              <h2 className="text-balance">당신이 원하는 매장을 만들어 보세요</h2>
               <p className="lead text-pretty">
-                매장이 메뉴에 맞추는 것이 아니라, <b>메뉴가 상권에 맞춰 변합니다.</b>
+                상권에 따라 달라지는 후루룩찹찹을 직접 확인해보세요.
               </p>
+              <p className="fr-region-hint">원하는 상권을 선택해보세요 ↓</p>
             </div>
 
             <div className="fr-opts">
@@ -173,6 +174,9 @@ export function RegionSelect() {
                     <div className="name">{o.name}</div>
                   </div>
                   <div className="fr-opt-illust">{AREA_ILLUST[o.key]}</div>
+                  <span className="fr-opt-cta" aria-hidden="true">
+                    선택하기 →
+                  </span>
                 </button>
               ))}
             </div>

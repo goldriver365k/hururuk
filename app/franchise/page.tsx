@@ -286,6 +286,10 @@ export default function FranchisePage() {
             color:var(--fr-charcoal-soft);max-width:560px;
           }
           .fr-region .lead b{font-weight:600;color:var(--fr-charcoal);}
+          .fr-region-hint{
+            font-size:14.5px;font-weight:700;color:var(--fr-red);
+            margin-top:18px;letter-spacing:-0.01em;
+          }
           .fr-opts{
             display:grid;grid-template-columns:repeat(3,1fr);
             gap:20px;margin-bottom:36px;
@@ -323,7 +327,10 @@ export default function FranchisePage() {
           .fr-opt[aria-pressed="true"] .name{color:var(--fr-ivory);}
           .fr-opt[aria-pressed="true"] .area{color:var(--fr-warm);}
 
-          .fr-opt--area{display:flex;align-items:center;justify-content:space-between;gap:8px;}
+          .fr-opt--area{
+            display:flex;align-items:center;justify-content:space-between;gap:8px;
+            padding-bottom:54px;
+          }
           .fr-opt-text{flex:0 0 45%;min-width:0;}
           .fr-opt-illust{
             flex:1 1 auto;display:flex;align-items:center;justify-content:center;
@@ -337,6 +344,23 @@ export default function FranchisePage() {
           .fr-opt--resid .fr-opt-illust{background:radial-gradient(circle, rgba(176,138,62,.12), transparent 72%);}
           .fr-opt--office .fr-opt-illust{background:radial-gradient(circle, rgba(107,131,145,.12), transparent 72%);}
           .fr-opt[aria-pressed="true"] .fr-opt-illust{color:var(--fr-ivory);}
+
+          .fr-opt-cta{
+            position:absolute;right:20px;bottom:16px;
+            display:inline-flex;align-items:center;gap:2px;
+            font-size:13px;font-weight:700;letter-spacing:-0.01em;
+            color:var(--fr-warm);
+            padding:6px 12px;border-radius:999px;
+            background:var(--fr-graywash);
+            transition:background .2s ease,color .2s ease;
+          }
+          .fr-opt[aria-pressed="true"] .fr-opt-cta{
+            background:rgba(243,239,232,.12);color:var(--fr-warm);
+          }
+          @media(hover:hover){
+            .fr-opt--area:hover{box-shadow:0 10px 28px rgba(38,36,31,.10);}
+            .fr-opt--area:hover .fr-opt-cta{background:var(--fr-red);color:var(--fr-ivory);}
+          }
 
           .fr-desc{
             min-height:0;
@@ -782,7 +806,9 @@ export default function FranchisePage() {
             .fr-region .head{margin-bottom:44px;}
             .fr-opts{grid-template-columns:1fr;gap:14px;}
             .fr-opt{padding:32px 28px;}
+            .fr-opt--area{padding-bottom:58px;}
             .fr-opt-illust svg{width:64px;height:64px;}
+            .fr-opt-cta{right:16px;bottom:14px;font-size:12.5px;padding:5px 10px;}
             .fr-next{width:100%;justify-content:center;}
             .fr-menus{grid-template-columns:1fr;gap:12px;}
             .fr-btnrow .fr-next,.fr-btnrow .fr-back{flex:1;justify-content:center;}
