@@ -898,8 +898,8 @@ export default function FranchisePage() {
                   →
                 </span>
               </a>
-              <a href="#why" className="fr-hero-cta-secondary">
-                브랜드 알아보기
+              <a href="#start" className="fr-hero-cta-secondary">
+                내가 원하는 매장 만들어 보기
               </a>
             </div>
 
