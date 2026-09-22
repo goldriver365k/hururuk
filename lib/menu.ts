@@ -23,6 +23,13 @@ export const categoryOrder: MenuCategory[] = ["rice", "pho", "mala", "spaghetti"
 
 export const menuItems: MenuItem[] = [
   {
+    id: "gochujang-butter-hwasan-bulbaek",
+    name: "고추장버터화산불백",
+    tagline: "고추장버터에 톡 터지는 노른자",
+    category: "rice",
+    image: "/assets/menu/gochujang-butter-hwasan-bulbaek.png",
+  },
+  {
     id: "hwasan-bulbaek",
     name: "화산불백",
     tagline: "남자의 소울푸드",
