@@ -107,6 +107,13 @@ export const menuItems: MenuItem[] = [
     image: "/assets/menu/jikhwa-woosamgyeop-rice.png",
   },
   {
+    id: "sobaeksan-beef",
+    name: "소백산",
+    tagline: "소고기간장불백",
+    category: "rice",
+    image: "/assets/menu/sobaeksan-beef.png",
+  },
+  {
     id: "woosamgyeop-bomb-pho",
     name: "우삼겹폭탄쌀국수",
     tagline: "하노이의 감성",
@@ -217,6 +224,20 @@ export const menuItems: MenuItem[] = [
     tagline: "얼큰하게 속 풀리는 해장 한 그릇",
     category: "spaghetti",
     image: "/assets/menu/woosamgyeop-haejang-pasta.png",
+  },
+  {
+    id: "seafood-stirfry-spaghetti",
+    name: "해물볶음파스타",
+    tagline: "불맛 가득한 해물 볶음면",
+    category: "spaghetti",
+    image: "/assets/menu/seafood-stirfry-spaghetti.png",
+  },
+  {
+    id: "seafood-haejang-spaghetti",
+    name: "해물해장파스타",
+    tagline: "해물 듬뿍, 얼큰한 해장 한 그릇",
+    category: "spaghetti",
+    image: "/assets/menu/seafood-haejang-spaghetti.png",
   },
   {
     id: "donkatsu",
