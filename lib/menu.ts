@@ -142,6 +142,13 @@ export const menuItems: MenuItem[] = [
     image: "/assets/menu/gochujang-woosamgyeop-stirfry.png",
   },
   {
+    id: "shrimp-wonton-pho",
+    name: "새우완탕쌀국수",
+    tagline: "탱글한 새우완탕 한 그릇",
+    category: "pho",
+    image: "/assets/menu/shrimp-wonton-pho.png",
+  },
+  {
     id: "malatang",
     name: "마라탕",
     tagline: "그녀의 스트레스를 날려줄",
