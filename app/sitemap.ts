@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next"
 
-const BASE_URL = "https://hururuk.shop"
+const BASE_URL = "http://hururuk.shop"
 
 const ROUTES = ["", "/franchise", "/menu", "/menu-select", "/brand", "/solo", "/couple", "/family", "/friends"]
 
