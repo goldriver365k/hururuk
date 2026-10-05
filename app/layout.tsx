@@ -27,6 +27,11 @@ export const metadata: Metadata = {
     description:
       "여러 전문메뉴를 한곳에서 즐기는 신개념 분식 브랜드 후루룩찹찹. 상권에 맞춘 외식업 창업 파트너를 안내합니다.",
   },
+  verification: {
+    other: {
+      "naver-site-verification": "3b21aa83d69f7e4caecf28ca6faef92052c8cc69",
+    },
+  },
 }
 
 export const viewport: Viewport = {
