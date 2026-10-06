@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { RegionSelect } from "./region-select"
 import { ConsultForm } from "./consult-form"
+import { HeroIntro } from "./hero-intro"
 
 export const metadata: Metadata = {
   title: "후루룩찹찹 파트너 | 사업 제안",
@@ -841,6 +842,8 @@ export default function FranchisePage() {
         `,
         }}
       />
+
+      <HeroIntro />
 
       <header className="fr-header">
         <div className="fr-wrap">
